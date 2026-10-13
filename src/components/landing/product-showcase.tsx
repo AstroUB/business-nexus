@@ -13,7 +13,7 @@ export const businesses = [
   { name: 'Forma Labs', type: 'Product development', mark: 'f', style: '', location: 'Bengaluru, India' },
   { name: 'Bloom Social', type: 'Marketing & storytelling', mark: 'b', style: 'mint', location: 'Amsterdam, NL' },
   { name: 'Layers', type: 'Creative development', mark: 'L', style: 'ink', location: 'New York, US' },
-];
+] as const;
 export function BizLogo({ mark, style = '' }: { mark: string; style?: string }) { return <div className={`biz-logo ${style}`}>{mark}</div>; }
 export function ProductShowcase({ view = 'feed', compact = false }: { view?: DemoView; compact?: boolean }) {
   const [liked, setLiked] = useState(false);
