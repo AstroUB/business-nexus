@@ -78,10 +78,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CoFound — Grow together" },
+      { title: "Connecto — Grow together" },
       { name: "description", content: "The social network built for businesses." },
-      { name: "author", content: "CoFound" },
-      { property: "og:title", content: "CoFound — Grow together" },
+      { name: "author", content: "Connecto" },
+      { property: "og:title", content: "Connecto — Grow together" },
       { property: "og:description", content: "The social network built for businesses." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
