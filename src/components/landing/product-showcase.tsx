@@ -6,7 +6,7 @@ import founder from '@/assets/founder.jpg';
 
 export type DemoView = 'feed' | 'discover' | 'messages';
 export function Brand({ light = false }: { light?: boolean }) {
-  return <a href="#" className={`brand ${light ? 'brand-light' : ''}`} aria-label="CoFound home"><span className="brand-mark">✳</span>cofound<span className="text-primary">.</span></a>;
+  return <a href="#" className={`brand ${light ? 'brand-light' : ''}`} aria-label="Connecto home"><span className="brand-mark">✳</span>connecto<span className="text-primary">.</span></a>;
 }
 export const businesses = [
   { name: 'Orbit Studio', type: 'Brand & digital design', mark: 'o', style: 'ink', location: 'London, UK' },
@@ -21,7 +21,7 @@ export function ProductShowcase({ view = 'feed', compact = false }: { view?: Dem
   const [saved, setSaved] = useState(false);
   const [localView, setLocalView] = useState<DemoView | null>(null);
   const activeView = localView ?? view;
-  return <div className="product" aria-label="Interactive CoFound product preview">
+  return <div className="product" aria-label="Interactive Connecto product preview">
     <div className="product-top"><Brand /><div className="product-top-right"><Search /><Mail /><Bell /><img className="mini-avatar" src={founder} alt="Business owner profile" width={25} height={25} loading="lazy" /></div></div>
     <div className="product-layout">
       <aside className="product-sidebar"><div className="business-id"><BizLogo mark="a" /><div><b>Acme Studio</b><small>Your business workspace</small></div></div>
