@@ -20,6 +20,14 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BizLogo, businesses } from "./product-showcase";
+import { PlatformFeedPreview } from "./investor-preview";
+import rocket from "@/assets/startup-rocket.png";
+import browser from "@/assets/tech-browser.png";
+import brush from "@/assets/creative-brush.png";
+import megaphone from "@/assets/agency-megaphone.png";
+import growth from "@/assets/investor-growth.png";
+import idea from "@/assets/pitch-idea.png";
+import conversation from "@/assets/conversation-3d.png";
 import links from "@/assets/connect-links.png";
 import appIcon from "@/assets/app-icon.png";
 import founder from "@/assets/founder.jpg";
@@ -36,216 +44,15 @@ function Heading({ label, title, copy }: { label: string; title: React.ReactNode
   );
 }
 export function FeatureBento() {
-  return (
-    <section className="section container-wide" id="features">
-      <Heading
-        label="Good things, all in one place"
-        title={
-          <>
-            A bigger stage.
-            <br />
-            <span className="serif">A more meaningful network.</span>
-          </>
-        }
-        copy="Everything your business needs to show up, stand out, and turn shared ambition into something real."
-      />
-      <div className="detail-bento">
-        <article className="detail-tile feature-network">
-          <div className="tile-kicker">
-            <Users />
-            01 — Meaningful discovery
-          </div>
-          <h3>
-            The right fit.
-            <br />
-            Not just another follow.
-          </h3>
-          <p>
-            Find teams by what they build, what they offer, and what they need. Shared interests
-            start the conversation. Complementary skills keep it going.
-          </p>
-          <div className="matching-visual">
-            <div className="match-business">
-              <BizLogo mark="o" style="ink" />
-              <strong>Orbit Studio</strong>
-              <small>Offers brand design</small>
-              <span>Looking for development</span>
-            </div>
-            <img
-              src={links}
-              alt="Two complementary businesses connected"
-              width={220}
-              height={220}
-              loading="lazy"
-            />
-            <div className="match-business">
-              <BizLogo mark="f" />
-              <strong>Forma Labs</strong>
-              <small>Offers development</small>
-              <span>Looking for brand design</span>
-            </div>
-          </div>
-          <div className="tile-foot">
-            <Check />
-            Shared vision. Different superpowers.
-          </div>
-        </article>
-        <article className="detail-tile profile-detail">
-          <div className="tile-kicker">
-            <Layers />
-            02 — Your business identity
-          </div>
-          <h3>
-            More story.
-            <br />
-            Less résumé.
-          </h3>
-          <p>
-            Put your services, team, and strongest work in one place. Let potential partners
-            understand your business before the first hello.
-          </p>
-          <div className="profile-sample">
-            <div className="profile-sample-cover">
-              <img
-                src={appIcon}
-                alt="Orbit brand project"
-                width={100}
-                height={100}
-                loading="lazy"
-              />
-            </div>
-            <BizLogo mark="o" style="ink" />
-            <strong>
-              Orbit Studio <Check />
-            </strong>
-            <small>Independent minds. Remarkable brands.</small>
-            <div className="detail-tags">
-              <span>Strategy</span>
-              <span>Identity</span>
-              <span>Digital</span>
-            </div>
-            <div className="profile-stats">
-              <span>
-                <b>12</b>Projects
-              </span>
-              <span>
-                <b>3</b>Services
-              </span>
-              <span>
-                <b>↗</b>Open to partner
-              </span>
-            </div>
-          </div>
-        </article>
-        <article className="detail-tile exchange-detail">
-          <div className="tile-kicker">
-            <Zap />
-            03 — Service exchange
-          </div>
-          <h3>
-            Trade expertise.
-            <br />
-            Multiply possibilities.
-          </h3>
-          <p>
-            You need a website. They need a brand. Discuss scope, align expectations, and create an
-            exchange that benefits both businesses.
-          </p>
-          <div className="exchange-receipt">
-            <div>
-              <Palette />
-              <span>
-                You offer<b>Brand identity</b>
-              </span>
-              <Check />
-            </div>
-            <div className="receipt-divider">
-              A win on both sides <ArrowRight />
-            </div>
-            <div>
-              <Code2 />
-              <span>
-                You receive<b>Website development</b>
-              </span>
-              <Check />
-            </div>
-          </div>
-        </article>
-        <article className="detail-tile feed-detail">
-          <div className="tile-kicker">
-            <Rocket />
-            04 — Your work, out loud
-          </div>
-          <h3>
-            Make the journey
-            <br />
-            part of your story.
-          </h3>
-          <p>
-            Post a launch, a lesson, or a behind-the-scenes look. Each update gives your business
-            another chance to be discovered.
-          </p>
-          <div className="launch-sample">
-            <div className="flex items-center gap-2">
-              <BizLogo mark="f" />
-              <strong>
-                Forma Labs <small>Just shared a milestone</small>
-              </strong>
-            </div>
-            <div className="launch-art">
-              <img
-                src={appIcon}
-                alt="Product launch artwork"
-                width={130}
-                height={130}
-                loading="lazy"
-              />
-              <span>
-                Built with ambition.
-                <br />
-                <b>Launched together.</b>
-              </span>
-            </div>
-            <div className="launch-engagement">
-              <Heart />
-              128
-              <MessageCircle />
-              24
-              <ArrowUpRight />
-            </div>
-          </div>
-        </article>
-        <article className="detail-tile conversation-detail">
-          <div className="tile-kicker">
-            <MessageCircle />
-            05 — Real conversations
-          </div>
-          <h3>
-            Start with hello.
-            <br />
-            Keep building from there.
-          </h3>
-          <p>
-            No pitch required. Talk about a project, swap ideas, and get to know the people behind
-            the business.
-          </p>
-          <div className="chat-bubble">
-            Hey! Your latest work caught our eye.<small>Orbit Studio · 10:24</small>
-          </div>
-          <div className="chat-bubble reply">
-            We’ve been following your launch too. Let’s build something.
-            <small>
-              Acme Studio · 10:26 <Check />
-            </small>
-          </div>
-          <div className="tile-foot">
-            <ShieldCheck />
-            Your next chapter starts with a conversation.
-          </div>
-        </article>
-      </div>
-    </section>
-  );
+  const features = [
+    { title: "Be more than a business name.", label: "01 — Your business identity", copy: "Give your company a home for its story, services, team, and strongest work. Help collaborators and investors understand what makes you different.", image: browser, tags: ["Company profile", "Work & services"] },
+    { title: "Put your ambition out there.", label: "02 — Ideas & investor discovery", copy: "Pitch your idea, share your progress, and let investors discover the business behind the vision. The right conversation could open your next chapter.", image: idea, tags: ["Startup pitches", "Investor connections"] },
+    { title: "Find your complementary strength.", label: "03 — Meaningful connections", copy: "Meet businesses with the skills you need and a shared drive to build. Discover their work before you start a conversation.", image: brush, tags: ["Partner discovery", "Shared ambition"] },
+    { title: "Turn expertise into opportunity.", label: "04 — Service exchange", copy: "You bring the brand. They bring the website. Discuss scope and agree on an exchange that creates value for both businesses.", image: rocket, tags: ["Complementary services", "Mutual value"] },
+    { title: "Keep the conversation moving.", label: "05 — Direct conversations", copy: "Talk with a potential partner or investor, ask questions, and explore the next step together. Relationships start with a real conversation.", image: conversation, tags: ["Business messaging", "Investor conversations"] },
+    { title: "Give great work a bigger audience.", label: "06 — Your business feed", copy: "Post your launches, achievements, and lessons. Let the network follow your journey and discover the possibilities in what you’re building.", image: megaphone, tags: ["Milestones", "Build in public"] },
+  ];
+  return <section className="section container-wide" id="features"><Heading label="Good things, all in one place" title={<>A bigger stage.<br /><span className="serif">A more meaningful network.</span></>} copy="A home for your business, a space for your ideas, and a network of collaborators and investors who can help them go further." /><div className="detail-bento refined-bento">{features.map((f,i)=><article className={`detail-tile refined-tile refined-tile-${i}`} key={f.label}><div className="tile-kicker">{f.label}</div><div className="refined-art"><img src={f.image} alt={f.title} width={300} height={300} loading="lazy" /></div><h3>{f.title}</h3><p>{f.copy}</p><div className="detail-tags">{f.tags.map(t=><span key={t}>{t}</span>)}</div></article>)}</div></section>;
 }
 const steps = [
   {
@@ -264,7 +71,7 @@ const steps = [
       "Tell the story behind your team",
       "Let partners know what you offer",
     ],
-    image: appIcon,
+    image: browser,
     stamp: "A little introduction. A lasting impression.",
   },
   {
@@ -283,7 +90,7 @@ const steps = [
       "Share work in progress",
       "Build a presence, one post at a time",
     ],
-    image: appIcon,
+    image: rocket,
     stamp: "Your latest work might be their next inspiration.",
   },
   {
@@ -302,7 +109,7 @@ const steps = [
       "Explore portfolios and services",
       "Connect with businesses that fit",
     ],
-    image: links,
+    image: brush,
     stamp: "Good partners bring what you’re missing.",
   },
   {
@@ -321,7 +128,7 @@ const steps = [
       "Discuss goals and expectations",
       "Find the shape of your collaboration",
     ],
-    image: links,
+    image: conversation,
     stamp: "The best partnerships start human.",
   },
   {
@@ -340,7 +147,7 @@ const steps = [
       "Exchange complementary expertise",
       "Share the work you made together",
     ],
-    image: appIcon,
+    image: growth,
     stamp: "One collaboration. A world of what’s next.",
   },
 ];
@@ -404,124 +211,18 @@ export function FullPageJourney() {
   );
 }
 export function Opportunities({ explore }: { explore: () => void }) {
-  const data = [
-    {
-      biz: businesses[0],
-      type: "Brand & digital design",
-      title: "A fresh identity for your next chapter.",
-      description:
-        "An independent studio bringing ambitious brands to life. We’re looking for a development team to turn bold ideas into beautiful websites.",
-      offer: "Brand strategy & identity",
-      need: "A creative development partner",
-      image: appIcon,
-      theme: "brand-opportunity",
-    },
-    {
-      biz: businesses[1],
-      type: "Product development",
-      title: "You dream it.<br />We’ll build it.",
-      description:
-        "A small product team with big engineering energy. Let’s partner with a creative studio to make your next product feel as good as it works.",
-      offer: "Web & product development",
-      need: "Brand and interface design",
-      image: links,
-      theme: "tech-opportunity",
-    },
-    {
-      biz: businesses[2],
-      type: "Marketing & storytelling",
-      title: "Good stories deserve an audience.",
-      description:
-        "We help businesses turn their story into meaningful attention. Open to trading content expertise for a fresh visual perspective.",
-      offer: "Content strategy & social",
-      need: "Visual storytelling & design",
-      image: appIcon,
-      theme: "social-opportunity",
-    },
-  ];
-  return (
-    <section className="section opportunity-section" id="opportunities">
-      <div className="container-wide">
-        <Heading
-          label="Opportunity looks good on you"
-          title={
-            <>
-              There’s a perfect fit
-              <br />
-              <span className="serif">somewhere in your feed.</span>
-            </>
-          }
-          copy="Real work. Clear needs. Complementary strengths. Discover the kinds of collaborations waiting to happen."
-        />
-        <div className="rich-opportunity-grid">
-          {data.map((item) => (
-            <article className={`rich-opportunity ${item.theme}`} key={item.biz.name}>
-              <div className="opportunity-cover">
-                <span>
-                  <span className="availability-dot" />
-                  Open to collaborate
-                </span>
-                <img
-                  src={item.image}
-                  alt={`${item.biz.name} project artwork`}
-                  width={220}
-                  height={220}
-                  loading="lazy"
-                />
-                <div className="cover-label">
-                  {item.type}
-                  <ArrowUpRight />
-                </div>
-              </div>
-              <div className="opportunity-info">
-                <div className="opportunity-company">
-                  <BizLogo mark={item.biz.mark} style={item.biz.style} />
-                  <div>
-                    <b>{item.biz.name}</b>
-                    <small>{item.biz.location}</small>
-                  </div>
-                  <ShieldCheck />
-                </div>
-                <h3>
-                  {item.title.split("<br />").map((t, i) => (
-                    <span className="block" key={i}>
-                      {t}
-                    </span>
-                  ))}
-                </h3>
-                <p>{item.description}</p>
-                <dl>
-                  <div>
-                    <dt>Bringing to the table</dt>
-                    <dd>{item.offer}</dd>
-                  </div>
-                  <div>
-                    <dt>Looking for</dt>
-                    <dd>{item.need}</dd>
-                  </div>
-                </dl>
-                <Button variant="outline" onClick={explore}>
-                  Meet {item.biz.name}
-                  <ArrowUpRight />
-                </Button>
-              </div>
-            </article>
-          ))}
-        </div>
-        <p className="sample-note">A glimpse of what’s possible. Sample business opportunities.</p>
-      </div>
-    </section>
-  );
+  return <section className="section opportunity-section" id="opportunities"><div className="container-wide"><Heading label="Opportunity looks good on you" title={<>There’s a perfect fit<br /><span className="serif">somewhere in your feed.</span></>} copy="A new partner. An idea worth backing. A conversation that changes what’s next. See how businesses and investors discover each other on Connecto." /><PlatformFeedPreview explore={explore} /></div></section>;
 }
 export function CommunityBento({ explore }: { explore: () => void }) {
   const groups = [
     {
       title: "Startups",
       subtitle: "Big ideas. Early chapters.",
-      copy: "Find your first creative partner, a product collaborator, or the team that helps your next launch land.",
+      copy: "Find a creative partner, a product collaborator, or an investor who believes in your next chapter.",
       icon: Rocket,
       class: "startup-community",
-      tags: ["Launch together", "Build in public"],
+      tags: ["Launch together", "Pitch your idea"],
+      image: rocket,
     },
     {
       title: "Creative studios",
@@ -530,6 +231,7 @@ export function CommunityBento({ explore }: { explore: () => void }) {
       icon: Palette,
       class: "studio-community",
       tags: ["Branding", "Digital experiences"],
+      image: brush,
     },
     {
       title: "Tech teams",
@@ -538,6 +240,7 @@ export function CommunityBento({ explore }: { explore: () => void }) {
       icon: Code2,
       class: "tech-community",
       tags: ["Products", "Development"],
+      image: browser,
     },
     {
       title: "Agencies",
@@ -546,6 +249,7 @@ export function CommunityBento({ explore }: { explore: () => void }) {
       icon: TrendingUp,
       class: "agency-community",
       tags: ["Marketing", "Strategy"],
+      image: megaphone,
     },
     {
       title: "Small businesses",
@@ -554,7 +258,9 @@ export function CommunityBento({ explore }: { explore: () => void }) {
       icon: Globe2,
       class: "small-community",
       tags: ["Services", "New connections"],
+      image: conversation,
     },
+    { title: "Investors", subtitle: "Conviction meets ambition.", copy: "Discover company pitches, explore the ideas behind them, and connect directly with teams to discuss investing in their projects.", icon: TrendingUp, class: "investor-community", tags: ["Discover pitches", "Back ambitious teams"], image: growth },
   ];
   return (
     <section className="section community-section" id="community">
@@ -578,19 +284,7 @@ export function CommunityBento({ explore }: { explore: () => void }) {
                 <span>0{i + 1}</span>
               </div>
               <div className="community-tile-art">
-                {i === 0 || i === 1 ? (
-                  <img
-                    src={i === 0 ? appIcon : links}
-                    alt=""
-                    width={160}
-                    height={160}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="category-symbol">
-                    <g.icon />
-                  </div>
-                )}
+                <img src={g.image} alt={`${g.title} blue-and-white sculpture`} width={300} height={300} loading="lazy" />
               </div>
               <h3>{g.title}</h3>
               <h4>{g.subtitle}</h4>
@@ -647,45 +341,24 @@ export function AnimatedTestimonials() {
     if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = setInterval(() => setActive((a) => (a + 1) % 3), 6000);
     return () => clearInterval(timer);
-  }, [paused]);
+  }, [paused, active]);
   useEffect(() => {
     let cancelled = false;
-    let context: { revert: () => void } | undefined;
+    const animations: { kill: () => void }[] = [];
     import("gsap").then(({ gsap }) => {
       if (cancelled || !root.current) return;
-      context = gsap.context(() => {
-        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const mobile = window.innerWidth < 700;
-        root.current?.querySelectorAll<HTMLElement>(".story-card").forEach((card, i) => {
-          gsap.to(card, {
-            flexGrow: i === active ? 2.35 : 1,
-            duration: reduced ? 0 : 0.85,
-            ease: "power3.inOut",
-          });
-          gsap.to(card.querySelector(".story-portrait"), {
-            width: i === active ? (mobile ? "42%" : "44%") : "0%",
-            opacity: i === active ? 1 : 0,
-            duration: reduced ? 0 : 0.7,
-            ease: "power3.inOut",
-          });
-          gsap.fromTo(
-            card.querySelector(".story-portrait img"),
-            { scale: 1.1 },
-            { scale: 1, duration: reduced ? 0 : 1.1 },
-          );
-          if (i === active && !reduced)
-            gsap.fromTo(
-              card.querySelector(".story-shine"),
-              { xPercent: -180 },
-              { xPercent: 350, duration: 1.8, delay: 0.4, ease: "power2.inOut" },
-            );
-        });
-      }, root);
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const portraitWidth = getComputedStyle(root.current).getPropertyValue("--portrait-width").trim() || "44%";
+      root.current.querySelectorAll<HTMLElement>(".story-card").forEach((card, i) => {
+        animations.push(gsap.to(card, { flexGrow: i === active ? 2.35 : 1, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
+        animations.push(gsap.to(card.querySelector(".story-portrait"), { width: i === active ? portraitWidth : "0%", opacity: i === active ? 1 : 0, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
+        if (i === active && !reduced) {
+          animations.push(gsap.fromTo(card.querySelector(".story-portrait img"), { scale: 1.06 }, { scale: 1, duration: 1.3, ease: "power2.out", overwrite: "auto" }));
+          animations.push(gsap.fromTo(card.querySelector(".story-shine"), { xPercent: -180 }, { xPercent: 350, duration: 2, delay: .55, ease: "power2.inOut", overwrite: "auto" }));
+        }
+      });
     });
-    return () => {
-      cancelled = true;
-      context?.revert();
-    };
+    return () => { cancelled = true; animations.forEach(animation => animation.kill()); };
   }, [active]);
   return (
     <section className="section testimonials container-wide" id="stories">
@@ -787,21 +460,21 @@ export function WorkInPublic({ explore }: { explore: () => void }) {
               name: "Orbit Studio",
               label: "A new look. A bigger vision.",
               type: "Brand identity",
-              image: appIcon,
+              image: brush,
             },
             {
               mark: "f",
               name: "Forma Labs",
               label: "Built better. Built together.",
               type: "Product launch",
-              image: links,
+              image: browser,
             },
             {
               mark: "b",
               name: "Bloom Social",
               label: "Stories worth stopping for.",
               type: "Creative campaign",
-              image: appIcon,
+              image: megaphone,
             },
           ].map((w, i) => (
             <article className={`work-card work-${i}`} key={w.name}>

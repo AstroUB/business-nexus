@@ -1,0 +1,31 @@
+import { useState } from "react";
+import { ArrowUpRight, Bookmark, Check, MessageCircle, Rocket, Search, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Brand, BizLogo } from "./product-showcase";
+import idea from "@/assets/pitch-idea.png";
+import growth from "@/assets/investor-growth.png";
+import rocket from "@/assets/startup-rocket.png";
+import browser from "@/assets/tech-browser.png";
+
+const pitches = [
+  { name: "Forma Labs", mark: "f", category: "Software", title: "A simpler way for small teams to build.", copy: "We’re creating a workspace that brings scattered tools together. Our working prototype is ready, and we’re looking for investors who share our vision.", stage: "Pre-seed", image: browser },
+  { name: "Orbit Ventures", mark: "o", category: "Climate", title: "Small changes. A cleaner tomorrow.", copy: "A reusable delivery system designed for independent shops. We’re sharing our first pilot and connecting with investors who understand sustainable commerce.", stage: "Seed", image: rocket },
+];
+
+export function PlatformFeedPreview({ explore }: { explore: () => void }) {
+  const [filter, setFilter] = useState("All ideas");
+  const [saved, setSaved] = useState<string[]>([]);
+  return <div className="investment-feed">
+    <div className="feed-preview-top"><Brand /><span>Ideas worth a closer look.</span><span className="preview-status">Sample network</span></div>
+    <div className="feed-preview-layout">
+      <aside className="pitch-sidebar"><div className="pitch-sidebar-title"><Search /> Discover</div><Button variant="ghost" onClick={() => setFilter("All ideas")} className={filter === "All ideas" ? "selected" : ""}><Rocket /> Startup pitches</Button><Button variant="ghost" onClick={explore}><MessageCircle /> Connections</Button><div className="investor-profile"><BizLogo mark="n" /><b>Northstar Capital</b><small>Investor · Early-stage teams</small><p>Looking for ambitious founders building useful products.</p></div></aside>
+      <div className="pitch-feed"><div className="pitch-feed-heading"><div><span className="tile-kicker">The idea feed</span><h3>Your next conviction starts here.</h3></div><TrendingUp /></div><div className="pitch-filters" aria-label="Filter sample ideas">{["All ideas", "Software", "Climate"].map(f => <Button key={f} variant="outline" aria-pressed={filter === f} onClick={() => setFilter(f)} className={filter === f ? "selected" : ""}>{f}</Button>)}</div>
+      {pitches.filter(p => filter === "All ideas" || p.category === filter).map(p => <article className="pitch-post" key={p.name}><div className="pitch-author"><BizLogo mark={p.mark} /><div><b>{p.name}</b><small>{p.category} · Pitching an idea</small></div><span>{p.stage}</span></div><h4>{p.title}</h4><p>{p.copy}</p><div className="pitch-post-art"><div><span>OPEN TO INVESTOR CONVERSATIONS</span><strong>{p.category === "Software" ? "Built for the next chapter." : "Better business. Lighter footprint."}</strong></div><img src={p.image} alt={`${p.category} startup pitch artwork`} width={240} height={240} loading="lazy" /></div><div className="pitch-post-actions"><Button variant="ghost" onClick={explore}><MessageCircle /> Connect to discuss</Button><Button variant="ghost" aria-pressed={saved.includes(p.name)} aria-label={`${saved.includes(p.name) ? "Unsave" : "Save"} ${p.name} idea`} onClick={() => setSaved(s => s.includes(p.name) ? s.filter(n => n !== p.name) : [...s, p.name])}>{saved.includes(p.name) ? <Check /> : <Bookmark />}{saved.includes(p.name) ? "Saved" : "Save idea"}</Button></div></article>)}
+      </div><aside className="investor-discovery"><img src={growth} alt="Blue glass growth sculpture" width={210} height={210} loading="lazy" /><span className="tile-kicker">A shared ambition</span><h4>Discover the idea.<br />Meet the business.</h4><p>Browse pitches, understand the vision, and start a conversation with the team behind it.</p><Button onClick={explore}>Explore connections <ArrowUpRight /></Button><small>Sample profiles and pitches.</small></aside>
+    </div>
+  </div>;
+}
+
+export function InvestorSection({ explore }: { explore: () => void }) {
+  return <section className="section investor-section" id="investors"><div className="container-wide"><div className="section-heading"><span className="eyebrow">Founders meet believers</span><h2>Your next big idea.<br /><span className="serif">Someone else’s next conviction.</span></h2><p>Investors are part of the Connecto network—not on the sidelines. Companies share their ideas, and investors discover the teams they want to back.</p></div><div className="investor-explainer"><div className="investor-idea-art"><img src={idea} alt="A blue glass lightbulb above a pitch presentation" width={460} height={460} loading="lazy" /></div><div className="investor-explainer-copy">{[{title:"Pitch what you believe in.",copy:"As a company, publish your idea: the problem, your solution, your progress, and what you’re looking for. Give investors a clear view of the opportunity."},{title:"Discover the businesses behind the ideas.",copy:"As an investor, explore company pitches and learn about their vision, work, and stage. Find projects that match your interests."},{title:"Connect. Talk. Explore an investment.",copy:"Investors connect directly with the company to ask questions, discuss the project, and explore backing it. Investment decisions and terms are agreed between both parties."}].map((s,i)=><div className="investor-step" key={s.title}><span>0{i+1}</span><div><h3>{s.title}</h3><p>{s.copy}</p></div></div>)}<Button onClick={explore}>Meet your next connection <ArrowUpRight /></Button><p className="sample-note">Connecto enables discovery and conversations, not guaranteed funding or on-platform investment payments.</p></div></div></div></section>;
+}

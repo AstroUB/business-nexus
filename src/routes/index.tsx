@@ -9,6 +9,7 @@ import {
   WorkInPublic,
   ConnectionLoop,
 } from "@/components/landing/enhanced-sections";
+import { InvestorSection } from "@/components/landing/investor-preview";
 import { useLandingMotion } from "@/components/landing/use-landing-motion";
 import {
   ArrowDown,
@@ -61,13 +62,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A network built for businesses. Share your work, meet your next collaborator, and exchange services with ambitious startups on Connecto.",
+          "Connecto connects businesses and investors. Share work, pitch startup ideas, discover collaborators, and connect with investors who believe in your vision.",
       },
       { property: "og:title", content: "Connecto — Where businesses grow together" },
       {
         property: "og:description",
         content:
-          "Make your work visible. Turn meaningful business connections into your next big opportunity.",
+          "Share your work and pitch your ideas. Meet complementary businesses and investors who can help you grow.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -83,7 +84,7 @@ const faqs = [
   ],
   [
     "Is this for businesses or individuals?",
-    "Businesses only. Whether you’re a small studio, a startup, or an established team, your business is the identity you show up with. The people behind it manage the profile.",
+    "Company profiles are for businesses, from independent studios to growing startups. Investors are also part of the network: they discover company pitches and connect with teams to discuss backing their projects.",
   ],
   [
     "How does exchanging services work?",
@@ -93,6 +94,7 @@ const faqs = [
     "What can my business share?",
     "Your launches, achievements, case studies, behind-the-scenes work, lessons, and open collaboration opportunities. Anything that helps other businesses understand what you’re building.",
   ],
+  ["How do investors use Connecto?", "Companies publish ideas and pitches with their vision, progress, and needs. Investors discover those pitches and connect with the company to discuss a potential investment. Both parties agree on their own terms; Connecto does not guarantee funding or process investment payments."],
   [
     "Can I join from anywhere?",
     "The vision is a global business community. Discover teams nearby or connect across borders, industries, and time zones.",
@@ -140,6 +142,7 @@ function Index() {
           <div className="nav-links">
             <a href="#why">Why Connecto</a>
             <a href="#features">Features</a>
+            <a href="#investors">Investors</a>
             <a href="#how-it-works">How it works</a>
             <a href="#stories">Community</a>
           </div>
@@ -161,6 +164,7 @@ function Index() {
             {[
               ["Why Connecto", "#why"],
               ["Features", "#features"],
+              ["Investors", "#investors"],
               ["How it works", "#how-it-works"],
               ["Community", "#stories"],
             ].map(([label, href]) => (
@@ -188,7 +192,7 @@ function Index() {
             <p className="hero-copy">
               The network built for businesses, not résumés.
               <br />
-              Show what you do. Find your people. Grow together.
+              Share your work. Pitch your ideas. Meet partners and investors.
             </p>
             <div className="hero-actions">
               <Button className="rounded-full h-11 px-6 text-xs" onClick={join}>
@@ -304,6 +308,7 @@ function Index() {
         </section>
         <FeatureBento />
         <FullPageJourney />
+        <InvestorSection explore={explore} />
         <Opportunities explore={explore} />
         <CommunityBento explore={explore} />
         <AnimatedTestimonials />
@@ -381,7 +386,7 @@ function Index() {
               <br />
               <span className="serif text-primary">Build your circle.</span>
             </h2>
-            <p>Your next collaborator, client, or big idea is out there. Let’s meet.</p>
+            <p>Your next collaborator, investor, or big idea is out there. Let’s meet.</p>
             <Button className="rounded-full h-11 px-6 text-xs" onClick={join}>
               Find your people <ArrowUpRight />
             </Button>
@@ -408,6 +413,7 @@ function Index() {
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How it works</a>
                 <a href="#opportunities">Opportunities</a>
+                <a href="#investors">For investors</a>
                 <a href="#stories">Community stories</a>
                 <a href="#faq">FAQ</a>
               </div>
