@@ -3,7 +3,7 @@ export function useLandingMotion() {
   useEffect(() => {
     let disposed = false;
     let context: { revert: () => void } | undefined;
-    let media: { revert: () => void } | undefined;
+    let media: import("gsap").gsap.MatchMedia | undefined;
     Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
       ([{ gsap }, { ScrollTrigger }]) => {
         if (disposed) return;
@@ -32,7 +32,8 @@ export function useLandingMotion() {
               const cards = section.querySelectorAll(
                 ".detail-tile, .rich-opportunity, .community-tile, .work-card, .loop-copy > div, .animated-story-grid",
               );
-              if (cards.length)
+              const firstCard = cards[0];
+              if (firstCard)
                 gsap.from(cards, {
                   y: 65,
                   opacity: 0,
@@ -41,7 +42,7 @@ export function useLandingMotion() {
                   stagger: 0.12,
                   duration: 1.05,
                   ease: "power3.out",
-                  scrollTrigger: { trigger: cards[0], start: "top 90%" },
+                  scrollTrigger: { trigger: firstCard, start: "top 90%" },
                 });
             });
             gsap.from(".hero h1", { y: 45, opacity: 0, duration: 1.2, ease: "power3.out" });
@@ -85,9 +86,10 @@ export function useLandingMotion() {
                   scrub: 0.8,
                   invalidateOnRefresh: true,
                   onUpdate: (self) => {
-                    const step = Math.min(4, Math.round(self.progress * 4));
+                    const count = track.children.length;
+                    const step = Math.min(count - 1, Math.round(self.progress * (count - 1)));
                     const counter = journey.querySelector(".journey-position");
-                    if (counter) counter.textContent = `0${step + 1} / 05`;
+                    if (counter) counter.textContent = `${String(step + 1).padStart(2, "0")} / ${String(count).padStart(2, "0")}`;
                     journey
                       .querySelectorAll(".journey-full-progress > span")
                       .forEach((el, i) => el.classList.toggle("active", i === step));
