@@ -360,11 +360,6 @@ export function AnimatedTestimonials() {
     });
     return () => { cancelled = true; animations.forEach(animation => animation.kill()); };
   }, [active]);
-  return () => {
-      cancelled = true;
-      context?.revert();
-    };
-  }, [active]);
   return (
     <section className="section testimonials container-wide" id="stories">
       <Heading

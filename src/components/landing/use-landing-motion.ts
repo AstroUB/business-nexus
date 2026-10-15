@@ -3,7 +3,7 @@ export function useLandingMotion() {
   useEffect(() => {
     let disposed = false;
     let context: { revert: () => void } | undefined;
-    let media: import("gsap").gsap.MatchMedia | undefined;
+    let media: ReturnType<typeof import("gsap")["gsap"]["matchMedia"]> | undefined;
     Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
       ([{ gsap }, { ScrollTrigger }]) => {
         if (disposed) return;
