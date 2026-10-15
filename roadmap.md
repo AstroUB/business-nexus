@@ -1,4 +1,7 @@
 # Landing page
+- [ ] Make investors prominent with pitch discovery and connection explanations.
+- [ ] Add seven new PNG illustrations and a platform feed preview.
+- [ ] Refine feature and business grids to white/blue gradients and smooth testimonials.
 - [ ] Rename the platform Connecto and add GSAP section animation.
 - [ ] Enrich feature and community grids, opportunities, and glass banner; add two sections.
 - [ ] Expand horizontal journey and animate single-active testimonial portraits.
