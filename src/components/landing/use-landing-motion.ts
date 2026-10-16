@@ -30,7 +30,7 @@ export function useLandingMotion() {
                   },
                 });
               const cards = section.querySelectorAll(
-                ".detail-tile, .rich-opportunity, .community-tile, .work-card, .loop-copy > div, .animated-story-grid, .investor-step, .investment-feed",
+                ".detail-tile, .rich-opportunity, .community-tile, .investor-research-art, .investor-research-copy, .loop-copy > div, .animated-story-grid, .investor-step, .investment-feed",
               );
               const firstCard = cards[0];
               if (firstCard)
