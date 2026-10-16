@@ -1,4 +1,7 @@
 # Landing page
+- [ ] Redesign feature and community sections as blue-only editorial bento layouts.
+- [ ] Emphasize pitching and replace work gallery with investor-related content.
+- [ ] Expand testimonials and verify automatic horizontal scrolling.
 - [ ] Make investors prominent with pitch discovery and connection explanations.
 - [ ] Add seven new PNG illustrations and a platform feed preview.
 - [ ] Refine feature and business grids to white/blue gradients and smooth testimonials.

@@ -44,16 +44,21 @@ function Heading({ label, title, copy }: { label: string; title: React.ReactNode
   );
 }
 export function FeatureBento() {
-  const features = [
-    { title: "Be more than a business name.", label: "01 — Your business identity", copy: "Give your company a home for its story, services, team, and strongest work. Help collaborators and investors understand what makes you different.", image: browser, tags: ["Company profile", "Work & services"] },
-    { title: "Put your ambition out there.", label: "02 — Ideas & investor discovery", copy: "Pitch your idea, share your progress, and let investors discover the business behind the vision. The right conversation could open your next chapter.", image: idea, tags: ["Startup pitches", "Investor connections"] },
-    { title: "Find your complementary strength.", label: "03 — Meaningful connections", copy: "Meet businesses with the skills you need and a shared drive to build. Discover their work before you start a conversation.", image: brush, tags: ["Partner discovery", "Shared ambition"] },
-    { title: "Turn expertise into opportunity.", label: "04 — Service exchange", copy: "You bring the brand. They bring the website. Discuss scope and agree on an exchange that creates value for both businesses.", image: rocket, tags: ["Complementary services", "Mutual value"] },
-    { title: "Keep the conversation moving.", label: "05 — Direct conversations", copy: "Talk with a potential partner or investor, ask questions, and explore the next step together. Relationships start with a real conversation.", image: conversation, tags: ["Business messaging", "Investor conversations"] },
-    { title: "Give great work a bigger audience.", label: "06 — Your business feed", copy: "Post your launches, achievements, and lessons. Let the network follow your journey and discover the possibilities in what you’re building.", image: megaphone, tags: ["Milestones", "Build in public"] },
-  ];
-  return <section className="section container-wide" id="features"><Heading label="Good things, all in one place" title={<>A bigger stage.<br /><span className="serif">A more meaningful network.</span></>} copy="A home for your business, a space for your ideas, and a network of collaborators and investors who can help them go further." /><div className="detail-bento refined-bento">{features.map((f,i)=><article className={`detail-tile refined-tile refined-tile-${i}`} key={f.label}><div className="tile-kicker">{f.label}</div><div className="refined-art"><img src={f.image} alt={f.title} width={300} height={300} loading="lazy" /></div><h3>{f.title}</h3><p>{f.copy}</p><div className="detail-tags">{f.tags.map(t=><span key={t}>{t}</span>)}</div></article>)}</div></section>;
+  return (
+    <section className="section container-wide" id="features">
+      <Heading label="Good things, all in one place" title={<>A bigger stage.<br /><span className="serif">A more meaningful network.</span></>} copy="Your work, your ideas, and your next connection. Everything that helps a business move forward, together." />
+      <div className="editorial-bento">
+        <article className="detail-tile bento-identity"><span className="tile-kicker">01 / Business presence</span><h3>Not just a name.<br />A business worth knowing.</h3><p>Your story, services, and strongest work—one company profile that makes the right first impression.</p><div className="detail-tags"><span>Company profile</span><span>Portfolio & services</span></div></article>
+        <figure className="detail-tile bento-art bento-browser"><img src={browser} alt="Sculptural blue browser representing your business profile" width={400} height={400} loading="lazy" /></figure>
+        <article className="detail-tile bento-pitch"><span className="tile-kicker">02 / Pitch your vision</span><h3>An idea today.<br />Someone’s conviction tomorrow.</h3><p>Publish your pitch. Share the problem, your solution, and your progress. Get discovered by investors who see the possibility.</p><span className="bento-footnote">Built for founders. Open to believers. <ArrowUpRight /></span></article>
+        <figure className="detail-tile bento-art bento-conversation"><img src={conversation} alt="Blue glass conversation bubbles representing direct connections" width={350} height={350} loading="lazy" /></figure>
+        <article className="detail-tile bento-exchange"><span className="tile-kicker">03 / Better together</span><h3>You bring the brand.<br />They bring the build.</h3><p>Discover complementary businesses, exchange services, and turn a conversation into work you’re proud to share.</p><div className="bento-inline-points"><span><Users /> Find partners</span><span><MessageCircle /> Talk directly</span><span><Layers /> Share milestones</span></div></article>
+        <figure className="detail-tile bento-art bento-rocket"><img src={rocket} alt="Blue-and-white startup rocket sculpture" width={350} height={350} loading="lazy" /></figure>
+      </div>
+    </section>
+  );
 }
+
 const steps = [
   {
     number: "01",
@@ -276,27 +281,11 @@ export function CommunityBento({ explore }: { explore: () => void }) {
           }
           copy="From a two-person studio to a growing product team, there’s a place for your business—and someone who needs what you do."
         />
-        <div className="community-bento">
+        <div className="community-bento community-banners">
           {groups.map((g, i) => (
-            <article className={`community-tile ${g.class}`} key={g.title}>
-              <div className="community-tile-top">
-                <g.icon />
-                <span>0{i + 1}</span>
-              </div>
-              <div className="community-tile-art">
-                <img src={g.image} alt={`${g.title} blue-and-white sculpture`} width={300} height={300} loading="lazy" />
-              </div>
-              <h3>{g.title}</h3>
-              <h4>{g.subtitle}</h4>
-              <p>{g.copy}</p>
-              <div className="detail-tags">
-                {g.tags.map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
-              </div>
-              <Button variant="ghost" onClick={explore} aria-label={`Explore ${g.title}`}>
-                Find your circle <ArrowUpRight />
-              </Button>
+            <article className={`community-tile community-banner banner-${i}`} key={g.title}>
+              <div className="community-banner-copy"><span className="tile-kicker">0{i + 1} / {g.title}</span><h3>{g.subtitle}</h3><p>{g.copy}</p><Button variant="ghost" onClick={explore} aria-label={`Explore ${g.title}`}>Explore {g.title.toLowerCase()} <ArrowUpRight /></Button></div>
+              <div className="community-tile-art"><img src={g.image} alt={`${g.title} blue-and-white sculpture`} width={380} height={380} loading="lazy" /></div>
             </article>
           ))}
         </div>
@@ -312,7 +301,7 @@ const stories = [
     metric: "2.5",
     caption: "hours saved on outreach",
     image: male,
-    tone: "peach",
+    tone: "blue",
   },
   {
     name: "Sophia Patel",
@@ -330,18 +319,21 @@ const stories = [
     metric: "34",
     caption: "new business connections",
     image: creative,
-    tone: "lavender",
+    tone: "blue",
   },
+  { name: "Daniel Brooks", role: "Founder, Forma Labs", quote: "Sharing our vision brought the right investor conversation closer.", metric: "1", caption: "shared vision, new possibilities", image: male, tone: "sky" },
+  { name: "Emma Wilson", role: "Partner, Northstar Capital", quote: "The idea matters. Getting to know the team matters just as much.", metric: "12", caption: "ideas on our watchlist", image: founder, tone: "blue" },
+  { name: "Nina Shah", role: "Founder, Fieldwork", quote: "Our next chapter began with a business that brought what we were missing.", metric: "4", caption: "complementary collaborations", image: creative, tone: "sky" },
 ];
 export function AnimatedTestimonials() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = setInterval(() => setActive((a) => (a + 1) % 3), 6000);
+    const timer = setInterval(() => setActive((a) => (a + 1) % stories.length), 4500);
     return () => clearInterval(timer);
-  }, [paused, active]);
+  }, [paused]);
   useEffect(() => {
     let cancelled = false;
     const animations: { kill: () => void }[] = [];
@@ -349,8 +341,9 @@ export function AnimatedTestimonials() {
       if (cancelled || !root.current) return;
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const portraitWidth = getComputedStyle(root.current).getPropertyValue("--portrait-width").trim() || "44%";
-      root.current.querySelectorAll<HTMLElement>(".story-card").forEach((card, i) => {
-        animations.push(gsap.to(card, { flexGrow: i === active ? 2.35 : 1, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
+      const scroller = root.current;
+      scroller.querySelectorAll<HTMLElement>(".story-card").forEach((card, i) => {
+        if (i === active) animations.push(gsap.to(scroller, { scrollLeft: card.offsetLeft, duration: reduced ? 0 : 1.2, ease: "power3.inOut", overwrite: "auto" }));
         animations.push(gsap.to(card.querySelector(".story-portrait"), { width: i === active ? portraitWidth : "0%", opacity: i === active ? 1 : 0, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
         if (i === active && !reduced) {
           animations.push(gsap.fromTo(card.querySelector(".story-portrait img"), { scale: 1.06 }, { scale: 1, duration: 1.3, ease: "power2.out", overwrite: "auto" }));
@@ -368,11 +361,20 @@ export function AnimatedTestimonials() {
         copy="Big ambitions. Real connections. A better way to grow together."
       />
       <div
-        className="animated-story-grid"
+        className="animated-story-grid story-carousel"
+        role="region"
+        aria-label="Community testimonials"
         ref={root}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
-        onFocusCapture={() => setPaused(true)}
+        onFocusCapture={(e) => {
+          setPaused(true);
+          const card = (e.target as HTMLElement).closest(".story-card");
+          if (card && root.current) {
+            const index = Array.from(root.current.children).indexOf(card);
+            if (index >= 0) setActive(index);
+          }
+        }}
         onBlurCapture={(e) => {
           if (!e.currentTarget.contains(e.relatedTarget)) setPaused(false);
         }}
@@ -423,7 +425,7 @@ export function AnimatedTestimonials() {
             key={s.name}
             aria-label={`Select ${s.name}'s testimonial`}
             aria-pressed={i === active}
-            onClick={() => setActive(i)}
+            onClick={() => { setPaused(true); setActive(i); }}
           >
             <span className={i === active ? "story-dot active" : "story-dot"} />
           </Button>
@@ -439,71 +441,18 @@ export function AnimatedTestimonials() {
   );
 }
 export function WorkInPublic({ explore }: { explore: () => void }) {
-  return (
-    <section className="section work-section" id="show-your-work">
-      <div className="container-wide">
-        <Heading
-          label="A little more behind the business"
-          title={
-            <>
-              Don’t just show the result.
-              <br />
-              <span className="serif">Share the spark behind it.</span>
-            </>
-          }
-          copy="The process, the breakthroughs, the lessons. Let other businesses see the thinking that makes your work yours."
-        />
-        <div className="work-gallery">
-          {[
-            {
-              mark: "o",
-              name: "Orbit Studio",
-              label: "A new look. A bigger vision.",
-              type: "Brand identity",
-              image: brush,
-            },
-            {
-              mark: "f",
-              name: "Forma Labs",
-              label: "Built better. Built together.",
-              type: "Product launch",
-              image: browser,
-            },
-            {
-              mark: "b",
-              name: "Bloom Social",
-              label: "Stories worth stopping for.",
-              type: "Creative campaign",
-              image: megaphone,
-            },
-          ].map((w, i) => (
-            <article className={`work-card work-${i}`} key={w.name}>
-              <div className="work-art">
-                <img src={w.image} alt={w.label} width={250} height={250} loading="lazy" />
-                <span>{w.type}</span>
-                <h3>{w.label}</h3>
-              </div>
-              <div className="work-caption">
-                <BizLogo mark={w.mark} />
-                <div>
-                  <b>{w.name}</b>
-                  <small>Made with ambition</small>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  aria-label={`View ${w.name} work`}
-                  onClick={explore}
-                >
-                  <ArrowUpRight />
-                </Button>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  const [selected, setSelected] = useState(0);
+  const details = [
+    { title: "The vision", heading: "See the problem. Understand the possibility.", copy: "Explore what a company is solving, who it is building for, and why its approach matters. A clear pitch is the beginning of an informed conversation.", icon: Sparkles },
+    { title: "The progress", heading: "Look beyond an idea. Follow the momentum.", copy: "Company updates, prototypes, and milestones bring a pitch into focus. Discover the work behind the ambition before you reach out.", icon: TrendingUp },
+    { title: "The team", heading: "Meet the people bringing the vision to life.", copy: "Get to know the business through its profile and work. Connect directly to ask questions and explore whether your interests align.", icon: Users },
+  ];
+  const current = details[selected];
+  if (!current) return null;
+  return <section className="section investor-perspective" id="show-your-work"><div className="container-wide">
+    <Heading label="Beyond the pitch" title={<>Invest in the possibility.<br /><span className="serif">Get to know the business.</span></>} copy="Great investment conversations start with understanding. Discover the vision, follow the progress, and meet the team behind the idea." />
+    <div className="investor-research-layout"><div className="investor-research-art"><img src={growth} alt="Blue glass growth sculpture representing investor discovery" width={460} height={460} loading="lazy" /><span className="tile-kicker">A closer look. A clearer conviction.</span></div><div className="investor-research-copy"><div className="research-tabs" role="tablist" aria-label="Explore a company pitch">{details.map((d,i)=><Button key={d.title} role="tab" id={`research-tab-${i}`} aria-controls="research-panel" aria-selected={selected===i} variant={selected===i?"default":"outline"} onClick={()=>setSelected(i)}><d.icon />{d.title}</Button>)}</div><div className="research-panel" id="research-panel" role="tabpanel" aria-labelledby={`research-tab-${selected}`} key={selected}><span className="tile-kicker">0{selected+1} / Investor perspective</span><h3>{current.heading}</h3><p>{current.copy}</p></div><Button variant="link" onClick={explore}>Discover businesses worth a conversation <ArrowUpRight /></Button><p className="sample-note">Connections open the conversation. Investors and companies handle their own due diligence and agree investment terms independently.</p></div></div>
+  </div></section>;
 }
 export function ConnectionLoop({ explore }: { explore: () => void }) {
   return (
