@@ -343,7 +343,7 @@ export function AnimatedTestimonials() {
       const portraitWidth = getComputedStyle(root.current).getPropertyValue("--portrait-width").trim() || "44%";
       const scroller = root.current;
       scroller.querySelectorAll<HTMLElement>(".story-card").forEach((card, i) => {
-        if (i === active) animations.push(gsap.to(scroller, { scrollLeft: card.offsetLeft - scroller.offsetLeft, duration: reduced ? 0 : 1.2, ease: "power3.inOut", overwrite: "auto" }));
+        if (i === active) animations.push(gsap.to(scroller, { scrollLeft: card.offsetLeft, duration: reduced ? 0 : 1.2, ease: "power3.inOut", overwrite: "auto" }));
         animations.push(gsap.to(card.querySelector(".story-portrait"), { width: i === active ? portraitWidth : "0%", opacity: i === active ? 1 : 0, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
         if (i === active && !reduced) {
           animations.push(gsap.fromTo(card.querySelector(".story-portrait img"), { scale: 1.06 }, { scale: 1, duration: 1.3, ease: "power2.out", overwrite: "auto" }));
@@ -448,6 +448,7 @@ export function WorkInPublic({ explore }: { explore: () => void }) {
     { title: "The team", heading: "Meet the people bringing the vision to life.", copy: "Get to know the business through its profile and work. Connect directly to ask questions and explore whether your interests align.", icon: Users },
   ];
   const current = details[selected];
+  if (!current) return null;
   return <section className="section investor-perspective" id="show-your-work"><div className="container-wide">
     <Heading label="Beyond the pitch" title={<>Invest in the possibility.<br /><span className="serif">Get to know the business.</span></>} copy="Great investment conversations start with understanding. Discover the vision, follow the progress, and meet the team behind the idea." />
     <div className="investor-research-layout"><div className="investor-research-art"><img src={growth} alt="Blue glass growth sculpture representing investor discovery" width={460} height={460} loading="lazy" /><span className="tile-kicker">A closer look. A clearer conviction.</span></div><div className="investor-research-copy"><div className="research-tabs" role="tablist" aria-label="Explore a company pitch">{details.map((d,i)=><Button key={d.title} role="tab" id={`research-tab-${i}`} aria-controls="research-panel" aria-selected={selected===i} variant={selected===i?"default":"outline"} onClick={()=>setSelected(i)}><d.icon />{d.title}</Button>)}</div><div className="research-panel" id="research-panel" role="tabpanel" aria-labelledby={`research-tab-${selected}`} key={selected}><span className="tile-kicker">0{selected+1} / Investor perspective</span><h3>{current.heading}</h3><p>{current.copy}</p></div><Button variant="link" onClick={explore}>Discover businesses worth a conversation <ArrowUpRight /></Button><p className="sample-note">Connections open the conversation. Investors and companies handle their own due diligence and agree investment terms independently.</p></div></div>
