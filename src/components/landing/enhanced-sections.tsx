@@ -425,7 +425,7 @@ export function AnimatedTestimonials() {
             key={s.name}
             aria-label={`Select ${s.name}'s testimonial`}
             aria-pressed={i === active}
-            onClick={() => setActive(i)}
+            onClick={() => { setPaused(true); setActive(i); }}
           >
             <span className={i === active ? "story-dot active" : "story-dot"} />
           </Button>
