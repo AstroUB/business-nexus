@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, Bookmark, Check, MessageCircle, Rocket, Search, TrendingUp } from "lucide-react";
+import { ArrowUpRight, Bookmark, Check, MessageCircle, Rocket, Search, TrendingUp, ArrowRight, Lightbulb, Eye, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Brand, BizLogo } from "./product-showcase";
 import idea from "@/assets/pitch-idea.png";
@@ -27,5 +27,38 @@ export function PlatformFeedPreview({ explore }: { explore: () => void }) {
 }
 
 export function InvestorSection({ explore }: { explore: () => void }) {
-  return <section className="section investor-section" id="investors"><div className="container-wide"><div className="section-heading"><span className="eyebrow">Founders meet believers</span><h2>Pitch your next big idea.<br /><span className="serif">Find someone who believes.</span></h2><p>A pitch is more than a post. Put your company’s vision in front of investors, show what you’re building, and connect directly with people who could back your next chapter.</p></div><div className="investor-explainer"><div className="investor-idea-art"><span className="pitch-spotlight-label"><Rocket /> The next chapter starts with your pitch</span><img src={idea} alt="A blue glass lightbulb above a pitch presentation" width={460} height={460} loading="lazy" /><div className="pitch-spotlight-caption"><span>YOUR IDEA</span><ArrowUpRight /><span>THEIR NEXT CONVICTION</span></div></div><div className="investor-explainer-copy">{[{title:"Pitch what you believe in.",copy:"As a company, publish your idea: the problem, your solution, your progress, and what you’re looking for. Give investors a clear view of the opportunity."},{title:"Discover the businesses behind the ideas.",copy:"As an investor, explore company pitches and learn about their vision, work, and stage. Find projects that match your interests."},{title:"Connect. Talk. Explore an investment.",copy:"Investors connect directly with the company to ask questions, discuss the project, and explore backing it. Investment decisions and terms are agreed between both parties."}].map((s,i)=><div className="investor-step" key={s.title}><span>0{i+1}</span><div><h3>{s.title}</h3><p>{s.copy}</p></div></div>)}<Button onClick={explore}>Explore the sample pitch network <ArrowUpRight /></Button><p className="sample-note">Connecto enables discovery and conversations, not guaranteed funding or on-platform investment payments.</p></div></div></div></section>;
+  const [perspective, setPerspective] = useState<"founder" | "investor">("founder");
+  const isFounder = perspective === "founder";
+  const details = isFounder ? [
+    { title: "Your vision, clearly told.", copy: "Share the problem, your solution, and why your company is the one to build it." },
+    { title: "Progress that speaks for itself.", copy: "Bring your prototype, milestones, and team into the story. Give your ambition substance." },
+    { title: "The right people in the room.", copy: "Connect with investors who see the potential and start a conversation about what comes next." },
+  ] : [
+    { title: "Discover beyond the pitch deck.", copy: "Explore company ideas by interest and stage, with the work and people behind them in view." },
+    { title: "Follow the company’s momentum.", copy: "Look at prototypes, milestones, and shared updates to understand how the vision is taking shape." },
+    { title: "Turn curiosity into a conversation.", copy: "Connect directly with the company, ask your questions, and explore investing on your own terms." },
+  ];
+  return (
+    <section className="section investor-section pitching-revamp" id="investors">
+      <div className="container-wide">
+        <div className="section-heading"><span className="eyebrow">Founders meet believers</span><h2>Big ideas deserve<br /><span className="serif">more than a small audience.</span></h2><p>Pitch your vision. Show your progress. Meet investors who believe in the business you’re building.</p></div>
+        <div className="pitch-theater">
+          <div className="pitch-stage">
+            <div className="pitch-stage-top"><span><Lightbulb /> THE PITCH SPOTLIGHT</span><span>01 / 02</span></div>
+            <div className="pitch-stage-title"><span>From “what if”</span><h3>to what’s <span className="serif">next.</span></h3></div>
+            <img className="pitch-stage-art" src={idea} alt="Sculptural blue glass lightbulb rising from a pitch presentation" width={460} height={460} loading="lazy" />
+            <div className="pitch-stage-example"><div className="pitch-example-author"><BizLogo mark="f" /><div><b>Forma Labs</b><span>Software · Pre-seed</span></div><small>Sample pitch</small></div><h4>A simpler way for small teams to build.</h4><div className="pitch-example-tags"><span>Working prototype</span><span>Open to conversations <ArrowUpRight /></span></div></div>
+            <div className="pitch-stage-footer"><span>YOUR VISION. THEIR NEXT CONVICTION.</span><ArrowUpRight /></div>
+          </div>
+          <div className="pitch-perspective">
+            <div className="pitch-role-switch" role="tablist" aria-label="Pitching perspective"><Button id="founder-perspective" role="tab" aria-selected={isFounder} aria-controls="pitch-perspective-panel" variant={isFounder ? "default" : "ghost"} onClick={() => setPerspective("founder")}><Rocket /> For founders</Button><Button id="investor-perspective" role="tab" aria-selected={!isFounder} aria-controls="pitch-perspective-panel" variant={!isFounder ? "default" : "ghost"} onClick={() => setPerspective("investor")}><TrendingUp /> For investors</Button></div>
+            <div id="pitch-perspective-panel" role="tabpanel" aria-labelledby={`${perspective}-perspective`} className="pitch-perspective-panel" key={perspective}><span className="tile-kicker">{isFounder ? "MAKE YOUR AMBITION VISIBLE" : "FIND YOUR NEXT CONVICTION"}</span><h3>{isFounder ? <>You bring the idea.<br />We open the room.</> : <>See the potential.<br />Meet the people.</>}</h3><div className="pitch-perspective-details">{details.map((detail, i) => <div key={detail.title}><span>0{i + 1}</span><div><h4>{detail.title}</h4><p>{detail.copy}</p></div></div>)}</div></div>
+            <Button className="pitch-explore" onClick={explore}>{isFounder ? "Explore sample company pitches" : "Discover the sample pitch network"}<ArrowUpRight /></Button>
+          </div>
+        </div>
+        <div className="pitch-path">{[{icon: Rocket, title: "Publish your pitch", copy: "The idea, the progress, the possibility."}, {icon: Eye, title: "Get on the right radar", copy: "Investors discover businesses worth a closer look."}, {icon: Users, title: "Start something together", copy: "Connect directly and explore the next chapter."}].map((step, i) => <div key={step.title}><step.icon /><div><span>0{i + 1}</span><h4>{step.title}</h4><p>{step.copy}</p></div>{i < 2 && <ArrowRight className="pitch-path-arrow" />}</div>)}</div>
+        <p className="sample-note pitch-disclaimer">Sample pitches only. Connecto enables discovery and conversations; companies and investors agree their own investment terms. No guaranteed funding or on-platform investment payments.</p>
+      </div>
+    </section>
+  );
 }
