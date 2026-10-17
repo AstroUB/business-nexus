@@ -1,4 +1,5 @@
 # Landing page
+- [ ] Match the first bento grid to the newly supplied reference.
 - [ ] Restore rounded bento corners and polish blue-white surfaces.
 - [ ] Restore the earlier expanding three-card testimonial design while retaining six automatic stories.
 - [ ] Verify the restored testimonial transitions and rounded grids.
