@@ -1,18 +1,18 @@
 # Landing page
-- [ ] Match the first bento grid to the newly supplied reference.
-- [ ] Restore rounded bento corners and polish blue-white surfaces.
-- [ ] Restore the earlier expanding three-card testimonial design while retaining six automatic stories.
-- [ ] Verify the restored testimonial transitions and rounded grids.
-- [ ] Redesign feature and community sections as blue-only editorial bento layouts.
-- [ ] Emphasize pitching and replace work gallery with investor-related content.
-- [ ] Expand testimonials and verify automatic horizontal scrolling.
-- [ ] Make investors prominent with pitch discovery and connection explanations.
-- [ ] Add seven new PNG illustrations and a platform feed preview.
-- [ ] Refine feature and business grids to white/blue gradients and smooth testimonials.
-- [ ] Rename the platform Connecto and add GSAP section animation.
-- [ ] Enrich feature and community grids, opportunities, and glass banner; add two sections.
-- [ ] Expand horizontal journey and animate single-active testimonial portraits.
-- [ ] Verify new animations and mobile layout.
+- [x] Match the first bento grid to the newly supplied reference.
+- [x] Restore rounded bento corners and polish blue-white surfaces.
+- [x] Restore the earlier expanding three-card testimonial design while retaining six automatic stories.
+- [x] Verify the restored testimonial transitions and rounded grids.
+- [x] Redesign feature and community sections as blue-only editorial bento layouts.
+- [x] Emphasize pitching and replace work gallery with investor-related content.
+- [x] Expand testimonials and verify automatic horizontal scrolling.
+- [x] Make investors prominent with pitch discovery and connection explanations.
+- [x] Add seven new PNG illustrations and a platform feed preview.
+- [x] Refine feature and business grids to white/blue gradients and smooth testimonials.
+- [x] Rename the platform Connecto and add GSAP section animation.
+- [x] Enrich feature and community grids, opportunities, and glass banner; add two sections.
+- [x] Expand horizontal journey and animate single-active testimonial portraits.
+- [x] Verify new animations and mobile layout.
 - [x] Create light blue design system and 3D assets.
 - [x] Build at least ten sections with interactive product showcase, bento, testimonials, horizontal explanations and footer.
 - [x] Verify mobile, desktop and central interactions.

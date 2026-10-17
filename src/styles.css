@@ -3466,7 +3466,7 @@ body { overflow-x: clip; }
 .reference-footer { display: flex; gap: 12px; align-items: center; justify-content: space-between; font-size: 10px; color: var(--muted-foreground); }
 .reference-footer svg { width: 19px; flex-shrink: 0; }
 .reference-bento .reference-photo { color: var(--primary-foreground); isolation: isolate; min-height: 350px; }
-.reference-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; z-index: -2; transition: transform 1s ease; }
+.reference-photo > img { filter: grayscale(1); position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; z-index: -2; transition: transform 1s ease; }
 .reference-photo::after { content: ''; position: absolute; inset: 0; background: var(--surface-photo-shade); z-index: -1; }
 .reference-photo:hover > img { transform: scale(1.04); }
 .community-banners .community-banner { overflow: hidden; }
