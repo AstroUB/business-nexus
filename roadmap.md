@@ -1,4 +1,7 @@
 # Landing page
+- [ ] Restore rounded bento corners and polish blue-white surfaces.
+- [ ] Restore the earlier expanding three-card testimonial design while retaining six automatic stories.
+- [ ] Verify the restored testimonial transitions and rounded grids.
 - [ ] Redesign feature and community sections as blue-only editorial bento layouts.
 - [ ] Emphasize pitching and replace work gallery with investor-related content.
 - [ ] Expand testimonials and verify automatic horizontal scrolling.
