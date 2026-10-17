@@ -1,4 +1,6 @@
 # Landing page
+- [ ] Add scroll-driven hero dashboard depth and layered motion.
+- [ ] Revamp the founders-and-investors pitching section and verify both views on desktop and mobile.
 - [x] Match the first bento grid to the newly supplied reference.
 - [x] Restore rounded bento corners and polish blue-white surfaces.
 - [x] Restore the earlier expanding three-card testimonial design while retaining six automatic stories.

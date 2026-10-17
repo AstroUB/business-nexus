@@ -54,6 +54,31 @@ export function useLandingMotion() {
               delay: 0.2,
               ease: "power3.out",
             });
+            const heroDashboard = document.querySelector(".hero-visual > .product");
+            if (heroDashboard) {
+              const heroScroll = gsap.timeline({
+                scrollTrigger: {
+                  trigger: ".hero-visual",
+                  start: "top 65%",
+                  end: "bottom 15%",
+                  scrub: 1.2,
+                  invalidateOnRefresh: true,
+                },
+              });
+              heroScroll.fromTo(heroDashboard,
+                { rotateX: 12, scale: 0.94, transformPerspective: 1400, transformOrigin: "center bottom" },
+                { rotateX: 0, scale: 1, y: -18, ease: "none" }, 0);
+              heroScroll.to(".hero-visual .product-feed", { y: -12, ease: "none" }, 0);
+              heroScroll.to(".hero-visual .post-art img", { y: -14, rotation: -8, scale: 1.12, ease: "none" }, 0);
+              heroScroll.to(".hero-visual .hero-float", { x: -32, y: -65, rotation: -12, ease: "none" }, 0);
+              heroScroll.to(".hero-visual .hero-float.right", { x: 32, y: -38, rotation: 15, ease: "none" }, 0);
+              heroScroll.to(".hero-visual .floating-note", { y: -52, rotation: 3, ease: "none" }, 0);
+            }
+            gsap.from(".pitch-stage, .pitch-perspective, .pitch-path > div", {
+              y: 45, opacity: 0, stagger: 0.12, duration: 1,
+              ease: "power3.out",
+              scrollTrigger: { trigger: ".pitch-theater", start: "top 85%" },
+            });
             gsap.from(".showcase-stage", {
               y: 60,
               rotateX: 7,
