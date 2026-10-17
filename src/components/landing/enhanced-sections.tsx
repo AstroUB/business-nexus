@@ -341,8 +341,8 @@ export function AnimatedTestimonials() {
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const portraitWidth = getComputedStyle(root.current).getPropertyValue("--portrait-width").trim() || "44%";
       const scroller = root.current;
-      scroller.querySelectorAll<HTMLElement>(".story-card").forEach((card, i) => {
-        const isActive = Number(card.dataset.storyIndex) === active;
+      scroller.querySelectorAll<HTMLElement>(".story-card").forEach((card) => {
+        const isActive = Number(card.dataset['storyIndex']) === active;
         animations.push(gsap.to(card, { flexGrow: isActive ? 2.35 : 1, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
         animations.push(gsap.to(card.querySelector(".story-portrait"), { width: isActive ? portraitWidth : "0%", opacity: isActive ? 1 : 0, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
         if (isActive && !reduced) {
@@ -371,7 +371,7 @@ export function AnimatedTestimonials() {
           setPaused(true);
           const card = (e.target as HTMLElement).closest(".story-card");
           if (card && root.current) {
-            const index = Number((card as HTMLElement).dataset.storyIndex);
+            const index = Number((card as HTMLElement).dataset['storyIndex']);
             if (Number.isInteger(index)) setActive(index);
           }
         }}
