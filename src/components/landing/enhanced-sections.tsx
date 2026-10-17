@@ -47,13 +47,12 @@ export function FeatureBento() {
   return (
     <section className="section container-wide" id="features">
       <Heading label="Good things, all in one place" title={<>A bigger stage.<br /><span className="serif">A more meaningful network.</span></>} copy="Your work, your ideas, and your next connection. Everything that helps a business move forward, together." />
-      <div className="editorial-bento">
-        <article className="detail-tile bento-identity"><span className="tile-kicker">01 / Business presence</span><h3>Not just a name.<br />A business worth knowing.</h3><p>Your story, services, and strongest work—one company profile that makes the right first impression.</p><div className="detail-tags"><span>Company profile</span><span>Portfolio & services</span></div></article>
-        <figure className="detail-tile bento-art bento-browser"><img src={browser} alt="Sculptural blue browser representing your business profile" width={400} height={400} loading="lazy" /></figure>
-        <article className="detail-tile bento-pitch"><span className="tile-kicker">02 / Pitch your vision</span><h3>An idea today.<br />Someone’s conviction tomorrow.</h3><p>Publish your pitch. Share the problem, your solution, and your progress. Get discovered by investors who see the possibility.</p><span className="bento-footnote">Built for founders. Open to believers. <ArrowUpRight /></span></article>
-        <figure className="detail-tile bento-art bento-conversation"><img src={conversation} alt="Blue glass conversation bubbles representing direct connections" width={350} height={350} loading="lazy" /></figure>
-        <article className="detail-tile bento-exchange"><span className="tile-kicker">03 / Better together</span><h3>You bring the brand.<br />They bring the build.</h3><p>Discover complementary businesses, exchange services, and turn a conversation into work you’re proud to share.</p><div className="bento-inline-points"><span><Users /> Find partners</span><span><MessageCircle /> Talk directly</span><span><Layers /> Share milestones</span></div></article>
-        <figure className="detail-tile bento-art bento-rocket"><img src={rocket} alt="Blue-and-white startup rocket sculpture" width={350} height={350} loading="lazy" /></figure>
+      <div className="editorial-bento reference-bento">
+        <article className="detail-tile reference-presence"><span className="reference-brand"><Layers /> Your presence</span><div><h3>One profile.<br />Every possibility.</h3><p>Your story, services, and strongest work. A business worth getting to know.</p></div></article>
+        <article className="detail-tile reference-feature"><div className="reference-founder"><img src={male} alt="Illustrative founder portrait" width={768} height={1024} loading="lazy" /></div><div className="reference-feature-copy"><span className="reference-brand"><Users /> Built for together</span><h3>You bring the vision.<br /><span className="serif">Find who brings the rest.</span></h3><p>Meet complementary businesses, exchange expertise, and turn a conversation into work you’re proud to share.</p><span className="reference-footer">Good businesses. Better connections. <ArrowUpRight /></span></div></article>
+        <article className="detail-tile reference-photo"><img src={founder} alt="Illustrative creative business founder" width={768} height={1024} loading="lazy" /><span className="reference-brand"><Layers /> Share your work</span><div><h3>Small updates.<br />Big visibility.</h3><p>Give your launches, milestones, and work a life beyond the project folder.</p></div></article>
+        <article className="detail-tile reference-pitch"><span className="reference-brand"><Sparkles /> Pitch your vision</span><div><h3>Big ideas.<br /><span className="serif">Meet believers.</span></h3><p>Publish your pitch and progress. Get discovered by investors who see the possibility.</p></div></article>
+        <article className="detail-tile reference-photo"><img src={creative} alt="Illustrative independent studio founder" width={768} height={1024} loading="lazy" /><span className="reference-brand"><MessageCircle /> Make a connection</span><div><h3>A simple hello.<br />A new chapter.</h3><p>Talk directly with partners and investors. Explore what comes next, together.</p></div></article>
       </div>
     </section>
   );
@@ -326,7 +325,7 @@ const stories = [
   { name: "Nina Shah", role: "Founder, Fieldwork", quote: "Our next chapter began with a business that brought what we were missing.", metric: "4", caption: "complementary collaborations", image: creative, tone: "sky" },
 ];
 export function AnimatedTestimonials() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(1);
   const [paused, setPaused] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -343,9 +342,10 @@ export function AnimatedTestimonials() {
       const portraitWidth = getComputedStyle(root.current).getPropertyValue("--portrait-width").trim() || "44%";
       const scroller = root.current;
       scroller.querySelectorAll<HTMLElement>(".story-card").forEach((card, i) => {
-        if (i === active) animations.push(gsap.to(scroller, { scrollLeft: card.offsetLeft, duration: reduced ? 0 : 1.2, ease: "power3.inOut", overwrite: "auto" }));
-        animations.push(gsap.to(card.querySelector(".story-portrait"), { width: i === active ? portraitWidth : "0%", opacity: i === active ? 1 : 0, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
-        if (i === active && !reduced) {
+        const isActive = Number(card.dataset.storyIndex) === active;
+        animations.push(gsap.to(card, { flexGrow: isActive ? 2.35 : 1, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
+        animations.push(gsap.to(card.querySelector(".story-portrait"), { width: isActive ? portraitWidth : "0%", opacity: isActive ? 1 : 0, duration: reduced ? 0 : 1.05, ease: "power3.inOut", overwrite: "auto" }));
+        if (isActive && !reduced) {
           animations.push(gsap.fromTo(card.querySelector(".story-portrait img"), { scale: 1.06 }, { scale: 1, duration: 1.3, ease: "power2.out", overwrite: "auto" }));
           animations.push(gsap.fromTo(card.querySelector(".story-shine"), { xPercent: -180 }, { xPercent: 350, duration: 2, delay: .55, ease: "power2.inOut", overwrite: "auto" }));
         }
@@ -361,7 +361,7 @@ export function AnimatedTestimonials() {
         copy="Big ambitions. Real connections. A better way to grow together."
       />
       <div
-        className="animated-story-grid story-carousel"
+        className="animated-story-grid story-reference"
         role="region"
         aria-label="Community testimonials"
         ref={root}
@@ -371,18 +371,19 @@ export function AnimatedTestimonials() {
           setPaused(true);
           const card = (e.target as HTMLElement).closest(".story-card");
           if (card && root.current) {
-            const index = Array.from(root.current.children).indexOf(card);
-            if (index >= 0) setActive(index);
+            const index = Number((card as HTMLElement).dataset.storyIndex);
+            if (Number.isInteger(index)) setActive(index);
           }
         }}
         onBlurCapture={(e) => {
           if (!e.currentTarget.contains(e.relatedTarget)) setPaused(false);
         }}
       >
-        {stories.map((s, i) => (
+        {stories.map((s, i) => i >= Math.floor(active / 3) * 3 && i < Math.floor(active / 3) * 3 + 3 ? (
           <article
             className={`story-card story-${s.tone} ${i === active ? "is-active" : ""}`}
             key={s.name}
+            data-story-index={i}
           >
             <div className="story-shine" />
             <div className="story-portrait" aria-hidden={i !== active}>
@@ -415,7 +416,7 @@ export function AnimatedTestimonials() {
               </div>
             </div>
           </article>
-        ))}
+        ) : null)}
       </div>
       <div className="story-controls">
         {stories.map((s, i) => (
