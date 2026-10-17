@@ -5,7 +5,7 @@
 - [x] Verify the restored testimonial transitions and rounded grids.
 - [x] Redesign feature and community sections as blue-only editorial bento layouts.
 - [x] Emphasize pitching and replace work gallery with investor-related content.
-- [x] Expand testimonials and verify automatic horizontal scrolling.
+- [x] Expand testimonials and verify automatic rotation in the restored three-card layout.
 - [x] Make investors prominent with pitch discovery and connection explanations.
 - [x] Add seven new PNG illustrations and a platform feed preview.
 - [x] Refine feature and business grids to white/blue gradients and smooth testimonials.
