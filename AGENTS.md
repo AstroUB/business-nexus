@@ -15,4 +15,4 @@
 - Define landing-page visual styles and semantic colors centrally in `src/styles.css` to keep all sections coherent.
 
 - Load GSAP and ScrollTrigger inside client effects through the landing motion hook, with scoped cleanup and reduced-motion alternatives, to keep SSR safe and animation lifecycle predictable.
-- Keep rich landing sections in dedicated presentation components; testimonials use a horizontally scrolling collection with one active portrait and the journey uses viewport-wide slides within a sticky scroll band.
+- Keep rich landing sections in dedicated presentation components; testimonials rotate stories in a three-card composition with one expanding portrait to preserve the reference layout, and the journey uses viewport-wide slides within a sticky scroll band.
