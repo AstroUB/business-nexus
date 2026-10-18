@@ -54,7 +54,7 @@ export function useLandingMotion() {
               delay: 0.2,
               ease: "power3.out",
             });
-            const heroDashboard = document.querySelector(".hero-visual > .product");
+            const heroDashboard = document.querySelector(".hero-dashboard-scroll");
             if (heroDashboard) {
               const heroScroll = gsap.timeline({
                 scrollTrigger: {
@@ -66,8 +66,8 @@ export function useLandingMotion() {
                 },
               });
               heroScroll.fromTo(heroDashboard,
-                { rotateX: 12, scale: 0.94, transformPerspective: 1400, transformOrigin: "center bottom" },
-                { rotateX: 0, scale: 1, y: -18, ease: "none" }, 0);
+                 { rotateX: 16, scale: 0.96, transformPerspective: 1600, transformOrigin: "center bottom" },
+                 { rotateX: 0, scale: 1, y: -24, ease: "none" }, 0);
               heroScroll.to(".hero-visual .product-feed", { y: -12, ease: "none" }, 0);
               heroScroll.to(".hero-visual .post-art img", { y: -14, rotation: -8, scale: 1.12, ease: "none" }, 0);
               heroScroll.to(".hero-visual .hero-float", { x: -32, y: -65, rotation: -12, ease: "none" }, 0);

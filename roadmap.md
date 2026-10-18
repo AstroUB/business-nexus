@@ -1,4 +1,8 @@
 # Landing page
+- [ ] Enlarge dashboard and enhance pointer tilt without interfering with scroll animation.
+- [ ] Add rolling glow buttons, moving logos, and honest numeric highlights.
+- [ ] Finish pitching section with a new founder-investor illustration and revamp Beyond the pitch.
+- [ ] Verify updated interactions and desktop/mobile presentation.
 - [ ] Add scroll-driven hero dashboard depth and layered motion.
 - [ ] Revamp the founders-and-investors pitching section and verify both views on desktop and mobile.
 - [x] Match the first bento grid to the newly supplied reference.
