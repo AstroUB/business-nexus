@@ -75,7 +75,7 @@ export function useLandingMotion() {
               heroScroll.to(".hero-visual .hero-float.right", { x: 32, y: -38, rotation: 15, ease: "none" }, 0);
               heroScroll.to(".hero-visual .floating-note", { y: -52, rotation: 3, ease: "none" }, 0);
             }
-            media?.add("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
+            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
               const surface = document.querySelector<HTMLElement>(".hero-visual");
               const tilt = document.querySelector<HTMLElement>(".hero-dashboard-tilt");
               if (!surface || !tilt) return;
@@ -94,8 +94,7 @@ export function useLandingMotion() {
                 surface.removeEventListener("pointermove", move);
                 surface.removeEventListener("pointerleave", reset);
               };
-              return () => removePointerListeners?.();
-            });
+            }
             gsap.from(".pitch-stage, .pitch-perspective, .pitch-path > div", {
               y: 45, opacity: 0, stagger: 0.12, duration: 1,
               ease: "power3.out",
@@ -148,6 +147,7 @@ export function useLandingMotion() {
               duration: 1,
               scrollTrigger: { trigger: ".footer", start: "top 90%" },
             });
+            return () => removePointerListeners?.();
           });
         });
         document.fonts.ready.then(() => {
