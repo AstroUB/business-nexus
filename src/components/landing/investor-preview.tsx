@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowUpRight, Bookmark, Check, MessageCircle, Rocket, Search, TrendingUp, ArrowRight, Lightbulb, Eye, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Brand, BizLogo } from "./product-showcase";
-import idea from "@/assets/pitch-idea.png";
+import idea from "@/assets/founder-investor-bridge.jpg";
 import growth from "@/assets/investor-growth.png";
 import rocket from "@/assets/startup-rocket.png";
 import browser from "@/assets/tech-browser.png";
@@ -44,9 +44,9 @@ export function InvestorSection({ explore }: { explore: () => void }) {
         <div className="section-heading"><span className="eyebrow">Founders meet believers</span><h2>Big ideas deserve<br /><span className="serif">more than a small audience.</span></h2><p>Pitch your vision. Show your progress. Meet investors who believe in the business you’re building.</p></div>
         <div className="pitch-theater">
           <div className="pitch-stage">
-            <div className="pitch-stage-top"><span><Lightbulb /> THE PITCH SPOTLIGHT</span><span>01 / 02</span></div>
+            <div className="pitch-stage-top"><span><Lightbulb /> THE PITCH SPOTLIGHT</span><span>IDEA → CONNECTION</span></div>
             <div className="pitch-stage-title"><span>From “what if”</span><h3>to what’s <span className="serif">next.</span></h3></div>
-            <img className="pitch-stage-art" src={idea} alt="Sculptural blue glass lightbulb rising from a pitch presentation" width={460} height={460} loading="lazy" />
+            <img className="pitch-stage-art" src={idea} alt="A founder presents a glass lightbulb idea, connected by a blue bridge to an investor discovering it" width={1536} height={1024} loading="lazy" />
             <div className="pitch-stage-example"><div className="pitch-example-author"><BizLogo mark="f" /><div><b>Forma Labs</b><span>Software · Pre-seed</span></div><small>Sample pitch</small></div><h4>A simpler way for small teams to build.</h4><div className="pitch-example-tags"><span>Working prototype</span><span>Open to conversations <ArrowUpRight /></span></div></div>
             <div className="pitch-stage-footer"><span>YOUR VISION. THEIR NEXT CONVICTION.</span><ArrowUpRight /></div>
           </div>

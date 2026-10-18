@@ -221,7 +221,7 @@ function Index() {
               width={168}
               height={168}
             />
-            <ProductShowcase compact />
+            <div className="hero-dashboard-scroll"><div className="hero-dashboard-tilt"><ProductShowcase compact /></div></div>
             <div className="floating-note">
               <Sparkles />
               <div>
@@ -232,16 +232,8 @@ function Index() {
         </section>
         <section className="trust container-wide" aria-label="Business community">
           <p>A place for bold brands, bright ideas, and businesses like yours.</p>
-          <div className="logo-row">
-            <span>
-              <Layers />
-              Layers
-            </span>
-            <span>✳ Sisyphus</span>
-            <span>◈ Circooles</span>
-            <span>⌘ Quotient</span>
-            <span>✴ Catalog</span>
-          </div>
+          <div className="logo-carousel" aria-label="Illustrative business brands"><div className="logo-track">{[0, 1].map(copy => <div className="logo-row" key={copy} aria-hidden={copy === 1}>{["Layers", "Sisyphus", "Circooles", "Quotient", "Catalog"].map((name, i) => <span key={name}><span className="logo-symbol">{["◫", "✳", "◈", "⌘", "✴"][i]}</span>{name}</span>)}</div>)}</div></div>
+          <div className="network-numbers"><div><strong>03</strong><span>Ways to grow</span><small>Share. Pitch. Connect.</small></div><div><strong>02</strong><span>Sides of the same ambition</span><small>Businesses + investors</small></div><div><strong>01</strong><span>More meaningful network</span><small>Built around your business</small></div></div>
         </section>
         <section className="intro container-wide" id="why">
           <div className="intro-label">Less cold outreach. More real connection.</div>

@@ -4,6 +4,7 @@ export function useLandingMotion() {
     let disposed = false;
     let context: { revert: () => void } | undefined;
     let media: ReturnType<typeof import("gsap")["gsap"]["matchMedia"]> | undefined;
+    let removePointerListeners: (() => void) | undefined;
     Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
       ([{ gsap }, { ScrollTrigger }]) => {
         if (disposed) return;
@@ -54,7 +55,7 @@ export function useLandingMotion() {
               delay: 0.2,
               ease: "power3.out",
             });
-            const heroDashboard = document.querySelector(".hero-visual > .product");
+            const heroDashboard = document.querySelector(".hero-dashboard-scroll");
             if (heroDashboard) {
               const heroScroll = gsap.timeline({
                 scrollTrigger: {
@@ -66,14 +67,35 @@ export function useLandingMotion() {
                 },
               });
               heroScroll.fromTo(heroDashboard,
-                { rotateX: 12, scale: 0.94, transformPerspective: 1400, transformOrigin: "center bottom" },
-                { rotateX: 0, scale: 1, y: -18, ease: "none" }, 0);
+                 { rotateX: 16, scale: 0.96, transformPerspective: 1600, transformOrigin: "center bottom" },
+                 { rotateX: 0, scale: 1, y: -24, ease: "none" }, 0);
               heroScroll.to(".hero-visual .product-feed", { y: -12, ease: "none" }, 0);
               heroScroll.to(".hero-visual .post-art img", { y: -14, rotation: -8, scale: 1.12, ease: "none" }, 0);
               heroScroll.to(".hero-visual .hero-float", { x: -32, y: -65, rotation: -12, ease: "none" }, 0);
               heroScroll.to(".hero-visual .hero-float.right", { x: 32, y: -38, rotation: 15, ease: "none" }, 0);
               heroScroll.to(".hero-visual .floating-note", { y: -52, rotation: 3, ease: "none" }, 0);
             }
+            media?.add("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
+              const surface = document.querySelector<HTMLElement>(".hero-visual");
+              const tilt = document.querySelector<HTMLElement>(".hero-dashboard-tilt");
+              if (!surface || !tilt) return;
+              gsap.set(tilt, { transformPerspective: 1600, transformOrigin: "center center" });
+              const rotateX = gsap.quickTo(tilt, "rotateX", { duration: 0.45, ease: "power3.out" });
+              const rotateY = gsap.quickTo(tilt, "rotateY", { duration: 0.45, ease: "power3.out" });
+              const move = (event: PointerEvent) => {
+                const box = surface.getBoundingClientRect();
+                rotateY(((event.clientX - box.left) / box.width - 0.5) * 18);
+                rotateX(-((event.clientY - box.top) / box.height - 0.5) * 12);
+              };
+              const reset = () => { rotateX(0); rotateY(0); };
+              surface.addEventListener("pointermove", move);
+              surface.addEventListener("pointerleave", reset);
+              removePointerListeners = () => {
+                surface.removeEventListener("pointermove", move);
+                surface.removeEventListener("pointerleave", reset);
+              };
+              return () => removePointerListeners?.();
+            });
             gsap.from(".pitch-stage, .pitch-perspective, .pitch-path > div", {
               y: 45, opacity: 0, stagger: 0.12, duration: 1,
               ease: "power3.out",
@@ -135,6 +157,7 @@ export function useLandingMotion() {
     );
     return () => {
       disposed = true;
+      removePointerListeners?.();
       media?.revert();
       context?.revert();
     };
