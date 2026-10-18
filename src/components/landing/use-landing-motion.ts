@@ -4,7 +4,6 @@ export function useLandingMotion() {
     let disposed = false;
     let context: { revert: () => void } | undefined;
     let media: ReturnType<typeof import("gsap")["gsap"]["matchMedia"]> | undefined;
-    let removePointerListeners: (() => void) | undefined;
     Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
       ([{ gsap }, { ScrollTrigger }]) => {
         if (disposed) return;
@@ -75,26 +74,6 @@ export function useLandingMotion() {
               heroScroll.to(".hero-visual .hero-float.right", { x: 32, y: -38, rotation: 15, ease: "none" }, 0);
               heroScroll.to(".hero-visual .floating-note", { y: -52, rotation: 3, ease: "none" }, 0);
             }
-            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-              const surface = document.querySelector<HTMLElement>(".hero-visual");
-              const tilt = document.querySelector<HTMLElement>(".hero-dashboard-tilt");
-              if (!surface || !tilt) return;
-              gsap.set(tilt, { transformPerspective: 1600, transformOrigin: "center center" });
-              const rotateX = gsap.quickTo(tilt, "rotateX", { duration: 0.45, ease: "power3.out" });
-              const rotateY = gsap.quickTo(tilt, "rotateY", { duration: 0.45, ease: "power3.out" });
-              const move = (event: PointerEvent) => {
-                const box = surface.getBoundingClientRect();
-                rotateY(((event.clientX - box.left) / box.width - 0.5) * 18);
-                rotateX(-((event.clientY - box.top) / box.height - 0.5) * 12);
-              };
-              const reset = () => { rotateX(0); rotateY(0); };
-              surface.addEventListener("pointermove", move);
-              surface.addEventListener("pointerleave", reset);
-              removePointerListeners = () => {
-                surface.removeEventListener("pointermove", move);
-                surface.removeEventListener("pointerleave", reset);
-              };
-            }
             gsap.from(".pitch-stage, .pitch-perspective, .pitch-path > div", {
               y: 45, opacity: 0, stagger: 0.12, duration: 1,
               ease: "power3.out",
@@ -147,7 +126,6 @@ export function useLandingMotion() {
               duration: 1,
               scrollTrigger: { trigger: ".footer", start: "top 90%" },
             });
-            return () => removePointerListeners?.();
           });
         });
         document.fonts.ready.then(() => {
@@ -157,7 +135,6 @@ export function useLandingMotion() {
     );
     return () => {
       disposed = true;
-      removePointerListeners?.();
       media?.revert();
       context?.revert();
     };

@@ -3531,6 +3531,7 @@ body { overflow-x: clip; }
 .connecto-button:is(:hover,:focus-visible) > svg { transform: rotate(-12deg) translateY(-1px); }
 .hero-visual { width: min(1120px, calc(100% - 100px)); perspective: 1600px; margin-top: 40px; }
 .hero-dashboard-scroll, .hero-dashboard-tilt { transform-style: preserve-3d; will-change: transform; }
+.hero-dashboard-tilt { transform: perspective(1600px) rotateX(var(--dashboard-x, 0deg)) rotateY(var(--dashboard-y, 0deg)); transition: transform .3s ease-out; }
 .hero-dashboard-tilt .product { text-align: left; box-shadow: var(--shadow-product); }
 .hero-float { left: -95px; }
 .hero-float.right { right: -85px; }
@@ -3660,6 +3661,7 @@ body { overflow-x: clip; }
 }
 @media (prefers-reduced-motion: reduce) {
   .logo-track { animation: none; }
+  .hero-dashboard-tilt { transform: none; transition: none; }
   .button-roll > span, .button-roll::after, .connecto-button > svg { transition: none; transform: none; }
   .button-roll::after { display: none; }
   .connecto-button:is(:hover,:focus-visible) .button-roll > span { transform: none; }

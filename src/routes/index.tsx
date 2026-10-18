@@ -10,6 +10,7 @@ import {
   ConnectionLoop,
 } from "@/components/landing/enhanced-sections";
 import { InvestorSection } from "@/components/landing/investor-preview";
+import { HeroDashboard } from "@/components/landing/hero-dashboard";
 import { useLandingMotion } from "@/components/landing/use-landing-motion";
 import {
   ArrowDown,
@@ -221,7 +222,7 @@ function Index() {
               width={168}
               height={168}
             />
-            <div className="hero-dashboard-scroll"><div className="hero-dashboard-tilt"><ProductShowcase compact /></div></div>
+            <HeroDashboard />
             <div className="floating-note">
               <Sparkles />
               <div>
