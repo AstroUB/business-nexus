@@ -12,6 +12,7 @@ import {
 import { InvestorSection } from "@/components/landing/investor-preview";
 import { HeroDashboard } from "@/components/landing/hero-dashboard";
 import { useLandingMotion } from "@/components/landing/use-landing-motion";
+import { useLiquidGlass } from "@/components/landing/use-liquid-glass";
 import {
   ArrowDown,
   ArrowRight,
@@ -133,11 +134,12 @@ function Index() {
   const [email, setEmail] = useState("");
   const [newsletterMessage, setNewsletterMessage] = useState("");
   useLandingMotion();
+  useLiquidGlass();
   const explore = () => setDialog("directory");
   const join = () => setDialog("join");
   return (
     <>
-      <header className="container-wide">
+      <header className="container-wide liquid-site-header">
         <nav className="nav" aria-label="Main navigation">
           <Brand />
           <div className="nav-links">
