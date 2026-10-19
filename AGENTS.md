@@ -14,6 +14,7 @@
 - Product and connection interactions are explicitly sample-only until a real service is connected; never imply that preview actions create real accounts or subscriptions.
 - Define landing-page visual styles and semantic colors centrally in `src/styles.css` to keep all sections coherent.
 - Keep dashboard scroll and pointer transforms on separate nested wrappers so the two motions compose without overwriting each other.
+- Keep the hero workspace independent of the lower product showcase; use accessible tab primitives and explicit sample-only connection feedback so presentation changes do not alter other previews.
 - Keep shared Button labels native and stable, preserve Slot semantics, and define liquid-glass variants centrally without metallic glow or circular icon wells.
 - Dynamically initialize official liquid-gl in the landing glass hook for navigation and empty button surfaces; keep native labels and Slot links untouched, destroy every lens on cleanup, and retain textured CSS glass without blur for button fallbacks.
 - Use unframed editorial artwork in investor sections and scope large CTA sizing to command buttons, not icon-only controls; mix tinted white surfaces in oklab to preserve blue hue.
