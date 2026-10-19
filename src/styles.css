@@ -48,27 +48,20 @@
   --shadow-editorial: inset 0 1px 0 var(--glass-border), 0 12px 32px oklch(0.3 0.12 260 / 0.06);
   --shadow-soft: 0 24px 60px oklch(0.3 0.04 260 / 0.09);
   --shadow-product: 0 28px 80px oklch(0.3 0.12 260 / 0.16);
-  --button-face: linear-gradient(135deg, var(--primary), var(--ink-blue));
-  --button-outline: linear-gradient(135deg, var(--background), var(--secondary));
-  --button-glow: 0 5px 18px color-mix(in oklch, var(--primary) 25%, transparent), inset 0 1px 0 color-mix(in oklch, var(--background) 40%, transparent);
-  --button-glow-active: 0 8px 28px color-mix(in oklch, var(--primary) 40%, transparent), inset 0 1px 0 color-mix(in oklch, var(--background) 60%, transparent);
   --font-editorial: "Playfair Display", serif;
-  --button-metal: linear-gradient(180deg, color-mix(in oklab, var(--primary) 75%, var(--background)), var(--primary) 48%, var(--ink-blue));
-  --button-rim: color-mix(in oklch, var(--background) 55%, transparent);
-  --button-sheen: linear-gradient(115deg, transparent 20%, color-mix(in oklch, var(--background) 32%, transparent) 48%, transparent 72%);
-  --button-aura: 0 0 0 4px color-mix(in oklch, var(--primary) 8%, transparent), 0 8px 22px color-mix(in oklch, var(--primary) 28%, transparent), inset 0 1px 1px var(--button-rim), inset 0 -3px 6px color-mix(in oklch, var(--ink-blue) 38%, transparent);
+  --surface-button-hover: color-mix(in oklab, var(--background) 86%, var(--primary));
   --editorial-wash: linear-gradient(180deg, var(--background), var(--secondary) 65%, var(--background));
   --editorial-outline: color-mix(in oklab, var(--primary) 16%, var(--background));
+  --surface-button-liquid: color-mix(in oklab, var(--background) 92%, var(--primary));
+  --surface-button-liquid-soft: color-mix(in oklab, var(--background) 96%, var(--primary));
+  --border-button-liquid: color-mix(in oklab, var(--primary) 30%, var(--background));
+  --shadow-button-liquid: 0 1px 2px color-mix(in oklab, var(--ink-blue) 8%, transparent);
   --surface-control-glass: color-mix(in oklab, var(--background) 72%, transparent);
   --border-control: color-mix(in oklab, var(--primary) 18%, var(--background));
   --shadow-control: inset 0 1px 0 color-mix(in oklab, var(--background) 22%, transparent), 0 3px 6px color-mix(in oklab, var(--ink-blue) 12%, transparent);
   --shadow-control-active: 0 5px 14px color-mix(in oklab, var(--ink-blue) 18%, transparent);
   --shadow-control-glass: inset 0 1px 0 var(--background), inset 0 -1px 0 var(--border-control), 0 4px 12px color-mix(in oklab, var(--ink-blue) 6%, transparent);
-  --surface-button-liquid: linear-gradient(155deg, color-mix(in oklab, var(--sky) 48%, transparent), color-mix(in oklab, var(--primary) 18%, transparent) 45%, color-mix(in oklab, var(--background) 70%, transparent) 72%, color-mix(in oklab, var(--primary) 32%, transparent));
-  --surface-button-liquid-soft: linear-gradient(155deg, color-mix(in oklab, var(--sky) 24%, transparent), color-mix(in oklab, var(--background) 78%, transparent) 55%, color-mix(in oklab, var(--primary) 14%, transparent));
-  --border-button-liquid: color-mix(in oklab, var(--primary) 32%, var(--background));
-  --shadow-button-liquid: inset 0 1px 1px var(--background), inset 1px 0 1px color-mix(in oklab, var(--background) 85%, transparent), inset 0 -2px 3px color-mix(in oklab, var(--primary) 18%, transparent), 0 5px 14px color-mix(in oklab, var(--ink-blue) 10%, transparent);
-  --shadow-button-liquid-active: inset 0 1px 2px var(--background), inset 0 -2px 4px color-mix(in oklab, var(--primary) 25%, transparent), 0 8px 20px color-mix(in oklab, var(--primary) 16%, transparent);
+  --shadow-button-liquid-active: 0 8px 20px color-mix(in oklab, var(--primary) 18%, transparent), 0 0 0 4px color-mix(in oklab, var(--primary) 8%, transparent);
   --texture-button-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpath d='M0 0h160v160H0z' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E");
 }
 * {
@@ -3536,17 +3529,20 @@ body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { .reference-photo > img { transition: none; } }
 
 /* Liquid-glass controls keep labels steady and actions crisp. */
-.connecto-button { position: relative; isolation: isolate; z-index: 2; border-radius: 14px; transition: background .25s, box-shadow .25s, transform .25s; }
+.connecto-button { position: relative; isolation: isolate; z-index: 2; border-radius: 14px; transition: transform .32s cubic-bezier(.22,1,.36,1), box-shadow .32s cubic-bezier(.22,1,.36,1), background-color .25s ease, border-color .25s ease, color .25s ease; will-change: transform; }
 .liquid-button-surface { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; }
-.connecto-button:is([data-button-variant="default"], [data-button-variant="outline"], [data-button-variant="secondary"]) { overflow: hidden; color: var(--ink-blue); border: 1px solid var(--border-button-liquid); box-shadow: var(--shadow-button-liquid); backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--surface-button-liquid); }
-.connecto-button:is([data-button-variant="outline"], [data-button-variant="secondary"]) { background: var(--surface-button-liquid-soft); }
-.connecto-button:is([data-button-variant="default"], [data-button-variant="outline"], [data-button-variant="secondary"])::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background-image: var(--texture-button-noise); background-size: 80px 80px; opacity: .32; pointer-events: none; z-index: 0; }
-.connecto-button[data-button-variant="ghost"] { box-shadow: none; }
-.connecto-button:is(:hover,:focus-visible) { transform: translateY(-1px); }
-.connecto-button:is([data-button-variant="default"], [data-button-variant="outline"], [data-button-variant="secondary"]):is(:hover,:focus-visible) { background: var(--surface-button-liquid); box-shadow: var(--shadow-button-liquid-active); border-color: var(--primary); }
-.connecto-button:active { transform: translateY(1px); }
-.connecto-button > svg { transition: transform .25s; }
+.connecto-button[data-button-variant="default"] { overflow: hidden; color: var(--background); background: var(--primary); border: 1px solid color-mix(in oklab, var(--ink-blue) 32%, transparent); box-shadow: 0 2px 6px color-mix(in oklab, var(--ink-blue) 14%, transparent), 0 6px 16px color-mix(in oklab, var(--primary) 16%, transparent); }
+.connecto-button:is([data-button-variant="outline"], [data-button-variant="secondary"]) { overflow: hidden; color: var(--ink-blue); border: 1px solid var(--border-button-liquid); box-shadow: var(--shadow-button-liquid); backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--surface-button-liquid-soft); }
+.connecto-button:is([data-button-variant="default"], [data-button-variant="outline"], [data-button-variant="secondary"])::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background-image: var(--texture-button-noise); background-size: 80px 80px; opacity: .26; mix-blend-mode: multiply; pointer-events: none; z-index: 0; }
+.connecto-button[data-button-variant="ghost"] { box-shadow: none; background: transparent; color: var(--ink-blue); }
+.connecto-button:is(:hover,:focus-visible) { transform: translateY(-2px); }
+.connecto-button[data-button-variant="default"]:is(:hover,:focus-visible) { background: color-mix(in oklab, var(--primary) 88%, var(--ink-blue)); border-color: color-mix(in oklab, var(--ink-blue) 48%, transparent); box-shadow: 0 12px 28px color-mix(in oklab, var(--primary) 30%, transparent), 0 0 0 4px color-mix(in oklab, var(--primary) 10%, transparent); }
+.connecto-button:is([data-button-variant="outline"], [data-button-variant="secondary"]):is(:hover,:focus-visible) { background: var(--surface-button-hover); border-color: var(--primary); box-shadow: 0 10px 24px color-mix(in oklab, var(--primary) 18%, transparent), 0 0 0 4px color-mix(in oklab, var(--primary) 8%, transparent); }
+.connecto-button[data-button-variant="ghost"]:is(:hover,:focus-visible) { background: color-mix(in oklab, var(--primary) 9%, var(--background)); color: var(--primary); }
+.connecto-button:active { transform: translateY(0) scale(.98); transition-duration: .12s; }
+.connecto-button > svg { transition: transform .32s cubic-bezier(.22,1,.36,1); }
 .connecto-button:is(:hover,:focus-visible) > svg { transform: translateX(3px); }
+.connecto-button:focus-visible { outline: 2px solid color-mix(in oklab, var(--primary) 60%, transparent); outline-offset: 2px; }
 .hero-visual { width: min(1120px, calc(100% - 100px)); perspective: 1600px; margin-top: 40px; }
 .hero-dashboard-scroll, .hero-dashboard-tilt { transform-style: preserve-3d; will-change: transform; }
 .hero-dashboard-tilt { transform: perspective(1600px) rotateX(var(--dashboard-x, 0deg)) rotateY(var(--dashboard-y, 0deg)); transition: transform .3s ease-out; }
@@ -3701,9 +3697,7 @@ body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   .logo-track { animation: none; }
   .hero-dashboard-tilt { transform: none; transition: none; }
-  .button-roll > span, .button-roll::after, .connecto-button > svg { transition: none; transform: none; }
-  .button-roll::after { display: none; }
-  .connecto-button:is(:hover,:focus-visible) .button-roll > span { transform: none; }
+  .connecto-button > svg { transition: none; transform: none; }
   .pitch-perspective-panel, .research-evidence { animation: none; }
 }
 
@@ -3777,7 +3771,7 @@ body { overflow-x: clip; }
   .research-tabs .connecto-button { padding-inline: 10px; font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .connecto-button, .connecto-button::before { transition: none; }
+  .connecto-button { transition: none; }
   .connecto-button:is(:hover,:focus-visible) { transform: none; }
 }
 
