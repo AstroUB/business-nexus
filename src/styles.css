@@ -3697,9 +3697,7 @@ body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   .logo-track { animation: none; }
   .hero-dashboard-tilt { transform: none; transition: none; }
-  .button-roll > span, .button-roll::after, .connecto-button > svg { transition: none; transform: none; }
-  .button-roll::after { display: none; }
-  .connecto-button:is(:hover,:focus-visible) .button-roll > span { transform: none; }
+  .connecto-button > svg { transition: none; transform: none; }
   .pitch-perspective-panel, .research-evidence { animation: none; }
 }
 
@@ -3773,7 +3771,7 @@ body { overflow-x: clip; }
   .research-tabs .connecto-button { padding-inline: 10px; font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .connecto-button, .connecto-button::before { transition: none; }
+  .connecto-button { transition: none; }
   .connecto-button:is(:hover,:focus-visible) { transform: none; }
 }
 
