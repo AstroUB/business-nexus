@@ -19,7 +19,7 @@ export function useLiquidGlass() {
           refraction: 0.012,
           bevelDepth: 0.1,
           bevelWidth: 0.12,
-          frost: 3,
+          frost: 0,
           shadow: false,
           specular: true,
           tilt: false,

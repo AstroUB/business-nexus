@@ -139,7 +139,7 @@ function Index() {
   const join = () => setDialog("join");
   return (
     <>
-      <header className="container-wide liquid-site-header">
+      <header className="container-wide liquid-site-header" data-liquid-ignore>
         <div className="liquid-nav-surface" aria-hidden="true" />
         <nav className="nav" aria-label="Main navigation">
           <Brand />

@@ -1,5 +1,5 @@
 # Landing page
-- [ ] Replace metallic glow buttons and integrate liquidGL with accessible fallbacks; verify desktop and phone interactions.
+- [x] Replace metallic glow buttons and integrate liquidGL with accessible fallbacks; verify desktop and phone interactions.
 - [x] Widen hero dashboard, strengthen glowing buttons, and redesign investor sections with oversized editorial typography and PNG artwork.
 - [x] Enlarge dashboard and enhance pointer tilt without interfering with scroll animation.
 - [x] Add rolling glow buttons, moving logos, and honest numeric highlights.
