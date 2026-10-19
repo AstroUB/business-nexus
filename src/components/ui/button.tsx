@@ -44,10 +44,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const label = parts?.filter((c) => typeof c === "string").join("").trim() || null;
     const rest = parts?.filter((c) => typeof c !== "string" || !c.trim());
     return (
-      <Comp data-button-variant={variant ?? "default"} data-button-size={size ?? "default"} className={cn("connecto-button", buttonVariants({ variant, size, className }))} ref={ref} {...props}>{glass ? <><span className="liquid-button-surface" aria-hidden="true" />{label ? (
-        <span className="button-roll">
-          <span className="button-roll-text">{label}</span>
-          <span className="button-roll-text" aria-hidden="true">{label}</span>
+      <Comp {...(label ? { "aria-label": label } : null)} data-button-variant={variant ?? "default"} data-button-size={size ?? "default"} className={cn("connecto-button", buttonVariants({ variant, size, className }))} ref={ref} {...props}>{glass ? <><span className="liquid-button-surface" aria-hidden="true" />{label ? (
+        <span className="button-roll-track" aria-hidden="true">
+          {label.split("").map((ch, i) => (
+            <span className="button-roll" key={i} style={{ "--roll-i": i } as React.CSSProperties}>
+              <span className="button-roll-text">{ch === " " ? "\u00A0" : ch}</span>
+              <span className="button-roll-text">{ch === " " ? "\u00A0" : ch}</span>
+            </span>
+          ))}
         </span>
       ) : children}{label ? rest : null}</> : children}</Comp>
     );
