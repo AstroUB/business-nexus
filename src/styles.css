@@ -3599,7 +3599,7 @@ body { overflow-x: clip; }
 .hd-author p { margin: 3px 0 0; font-size: 11px; color: var(--dashboard-muted); }
 .hd-post-type { padding: 5px 9px; border-radius: 6px; background: var(--secondary); color: var(--ink-blue); font-size: 10px; margin-left: auto; white-space: nowrap; }
 .hd-post-copy { font-size: 13px; line-height: 1.7; margin: 18px 0; color: var(--dashboard-muted); }
-.hero-dashboard-tilt .hd-art { background: var(--dashboard-art); height: 250px; border-radius: 12px; justify-content: space-between; padding: 28px; position: relative; }
+.hero-dashboard-tilt .hd-art { display: flex; align-items: center; overflow: hidden; color: var(--primary-foreground); background: var(--dashboard-art); height: 250px; border-radius: 12px; justify-content: space-between; padding: 28px; position: relative; }
 .hd-art > div { position: relative; z-index: 1; flex-shrink: 0; }
 .hd-art span { font-size: 9px; color: var(--primary-foreground); }
 .hd-art h3 { font-size: 36px; font-weight: 500; line-height: 1.05; margin: 20px 0 12px; }
