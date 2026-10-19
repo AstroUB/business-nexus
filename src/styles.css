@@ -52,6 +52,13 @@
   --button-outline: linear-gradient(135deg, var(--background), var(--secondary));
   --button-glow: 0 5px 18px color-mix(in oklch, var(--primary) 25%, transparent), inset 0 1px 0 color-mix(in oklch, var(--background) 40%, transparent);
   --button-glow-active: 0 8px 28px color-mix(in oklch, var(--primary) 40%, transparent), inset 0 1px 0 color-mix(in oklch, var(--background) 60%, transparent);
+  --font-editorial: "Playfair Display", serif;
+  --button-metal: linear-gradient(180deg, color-mix(in oklch, var(--primary) 75%, var(--background)), var(--primary) 48%, var(--ink-blue));
+  --button-rim: color-mix(in oklch, var(--background) 55%, transparent);
+  --button-sheen: linear-gradient(115deg, transparent 20%, color-mix(in oklch, var(--background) 32%, transparent) 48%, transparent 72%);
+  --button-aura: 0 0 0 4px color-mix(in oklch, var(--primary) 8%, transparent), 0 8px 22px color-mix(in oklch, var(--primary) 28%, transparent), inset 0 1px 1px var(--button-rim), inset 0 -3px 6px color-mix(in oklch, var(--ink-blue) 38%, transparent);
+  --editorial-wash: linear-gradient(180deg, var(--background), var(--secondary) 65%, var(--background));
+  --editorial-outline: color-mix(in oklch, var(--primary) 16%, var(--background));
 }
 * {
   border-color: var(--border);
@@ -3666,4 +3673,86 @@ body { overflow-x: clip; }
   .button-roll::after { display: none; }
   .connecto-button:is(:hover,:focus-visible) .button-roll > span { transform: none; }
   .pitch-perspective-panel, .research-evidence { animation: none; }
+}
+
+/* Oversized editorial moments and luminous machined controls. */
+.hero-visual { width: min(1380px, calc(100% - 64px)); }
+.connecto-button[data-button-variant="default"] { background: var(--button-metal); box-shadow: var(--button-aura); color: var(--primary-foreground); border: 1px solid var(--button-rim); }
+.connecto-button[data-button-variant="default"]::before,
+.connecto-button[data-button-variant="outline"]::before { content: ''; position: absolute; inset: 1px; border-radius: inherit; background: var(--button-sheen); background-size: 250% 100%; background-position: 130% 0; pointer-events: none; transition: background-position .8s ease; }
+.connecto-button[data-button-variant="default"]:is(:hover,:focus-visible),
+.connecto-button[data-button-variant="outline"]:is(:hover,:focus-visible) { box-shadow: var(--button-glow-active); transform: translateY(-2px); }
+.connecto-button:is(:hover,:focus-visible)::before { background-position: -30% 0; }
+.connecto-button { transition: box-shadow .35s, transform .35s, border-color .35s; }
+.connecto-button[data-button-variant="outline"] { border: 1px solid var(--editorial-outline); color: var(--ink-blue); background: var(--button-outline); box-shadow: var(--shadow-editorial); }
+.hero-actions .connecto-button, .nav .connecto-button, .pitch-explore, .investor-research-copy > .connecto-button { min-height: 54px; height: auto; padding: 10px 10px 10px 24px; gap: 20px; font-size: 13px; }
+.hero-actions .connecto-button > svg, .hero-actions .connecto-button > a > svg, .nav .connecto-button > svg, .pitch-explore > svg, .investor-research-copy > .connecto-button > svg { width: 34px; height: 34px; padding: 9px; border: 1px solid var(--button-rim); border-radius: 50%; background: color-mix(in oklch, var(--background) 12%, transparent); }
+.connecto-button:disabled { transform: none; }
+.pitching-revamp { background: var(--editorial-wash); padding-block: 110px 80px; overflow: clip; }
+.pitching-revamp .section-heading, .research-editorial .section-heading { max-width: 1050px; margin-bottom: 50px; }
+.pitching-revamp .section-heading h2, .research-editorial .section-heading h2 { font-size: 78px; line-height: 1.12; font-weight: 500; }
+.pitching-revamp .serif, .research-editorial .serif { font-family: var(--font-editorial); font-style: italic; color: var(--primary); }
+.pitching-revamp .section-heading p, .research-editorial .section-heading p { font-size: 16px; line-height: 1.8; max-width: 530px; margin-inline: auto; }
+.pitch-theater { grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+.pitch-stage { overflow: visible; background: none; border: 0; box-shadow: none; border-radius: 0; padding: 0; }
+.pitch-stage-top { font-size: 10px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.pitch-stage-art { width: 118%; max-width: none; margin: 5px -9% 10px; aspect-ratio: 3 / 2; object-fit: contain; mix-blend-mode: normal; }
+.pitch-art-caption { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-top: 18px; border-top: 1px solid var(--border); }
+.pitch-art-caption > span { font-size: 9px; color: var(--primary); line-height: 1.8; }
+.pitch-art-caption > span:last-child { text-align: right; }
+.pitch-art-caption b { font-size: 15px; font-weight: 500; color: var(--foreground); }
+.pitch-art-caption > svg { width: 24px; color: var(--primary); }
+.pitch-perspective-panel h3 { font-size: 43px; line-height: 1.14; margin-bottom: 24px; }
+.pitch-perspective-details p { font-size: 13px; }
+.pitch-perspective-details > div { padding: 17px 0; }
+.pitch-explore { margin-top: 20px; white-space: normal; text-align: left; }
+.pitch-path { margin-top: 65px; }
+.pitch-path h4 { font-size: 21px; }
+.pitch-path p { font-size: 13px; }
+.research-editorial { padding-block: 110px; overflow: clip; }
+.investor-research-layout { grid-template-columns: 1.1fr 1fr; gap: 65px; }
+.investor-research-art { background: none; border: 0; border-radius: 0; padding: 0; box-shadow: none; transform: none; }
+.research-dossier-heading { border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+.research-art-scene { background: none; overflow: visible; border-radius: 0; height: 440px; display: grid; place-items: center; margin-top: 0; isolation: isolate; }
+.research-art-scene img { width: 100%; height: 420px; object-fit: contain; position: relative; z-index: 1; filter: drop-shadow(0 20px 20px var(--editorial-outline)); }
+.research-art-word { position: absolute; top: 35px; left: 0; font-family: var(--font-editorial); font-style: italic; font-size: 84px; color: var(--editorial-outline); z-index: -1; }
+.research-evidence { border-block: 1px solid var(--border); padding-block: 22px; min-height: 130px; }
+.research-evidence strong { font-size: 25px; }
+.research-evidence p { font-size: 13px; }
+.research-panel { min-height: 330px; }
+.research-panel h3 { font-family: var(--font-editorial); font-size: 44px; line-height: 1.2; margin-top: 18px; }
+.research-panel p { font-size: 15px; }
+.research-tabs .connecto-button { height: 44px; font-size: 12px; }
+@media (max-width: 1050px) {
+  .pitching-revamp .section-heading h2, .research-editorial .section-heading h2 { font-size: 60px; }
+  .pitch-theater, .investor-research-layout { gap: 32px; }
+  .pitch-perspective-panel h3 { font-size: 35px; }
+  .research-panel h3 { font-size: 36px; }
+  .research-art-word { font-size: 64px; }
+  .research-tabs { gap: 6px; }
+  .research-tabs .connecto-button { padding-inline: 12px; }
+}
+@media (max-width: 700px) {
+  .hero-visual { width: calc(100% - 24px); }
+  .pitching-revamp, .research-editorial { padding-block: 70px; }
+  .pitching-revamp .section-heading h2, .research-editorial .section-heading h2 { font-size: 40px; }
+  .pitching-revamp .section-heading p, .research-editorial .section-heading p { font-size: 14px; }
+  .pitch-theater, .investor-research-layout { grid-template-columns: 1fr; gap: 38px; }
+  .pitch-stage-art { width: 108%; margin-inline: -4%; }
+  .pitch-art-caption b { font-size: 12px; }
+  .pitch-perspective-panel h3 { font-size: 35px; }
+  .pitch-role-switch { max-width: 100%; }
+  .pitch-role-switch .connecto-button { padding-inline: 13px; }
+  .pitch-explore, .investor-research-copy > .connecto-button { max-width: 100%; font-size: 12px; gap: 12px; }
+  .pitch-path { margin-top: 40px; }
+  .research-art-scene { height: 330px; }
+  .research-art-scene img { height: 320px; }
+  .research-art-word { font-size: 57px; }
+  .research-panel { min-height: 295px; }
+  .research-panel h3 { font-size: 34px; }
+  .research-tabs .connecto-button { padding-inline: 10px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .connecto-button, .connecto-button::before { transition: none; }
+  .connecto-button:is(:hover,:focus-visible) { transform: none; }
 }
