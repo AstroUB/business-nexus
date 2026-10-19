@@ -3522,20 +3522,17 @@ body { overflow-x: clip; }
 }
 @media (prefers-reduced-motion: reduce) { .reference-photo > img { transition: none; } }
 
-/* Polished controls: rolling labels, glass rims and restrained cobalt glow. */
-.connecto-button { position: relative; isolation: isolate; border-radius: 999px; transition: box-shadow .35s, background .35s, border-color .35s; }
-.connecto-button[data-button-variant="default"] { background: var(--button-face); box-shadow: var(--button-glow); border: 1px solid color-mix(in oklch, var(--primary-foreground) 24%, var(--primary)); }
-.connecto-button[data-button-variant="default"]:hover, .connecto-button[data-button-variant="default"]:focus-visible { box-shadow: var(--button-glow-active); }
-.connecto-button[data-button-variant="outline"] { background: var(--button-outline); border-color: color-mix(in oklch, var(--primary) 25%, var(--border)); box-shadow: var(--shadow-editorial); }
-.connecto-button[data-button-variant="outline"]:hover { border-color: var(--primary); box-shadow: var(--button-glow); }
-.connecto-button[data-button-variant="ghost"]:hover { background: var(--secondary); }
-.button-roll { display: inline-block; position: relative; overflow: hidden; vertical-align: middle; line-height: 1.45; min-width: 0; }
-.button-roll > span { display: block; transition: transform .48s cubic-bezier(.22,1,.36,1); }
-.button-roll::after { content: attr(data-label) / ""; position: absolute; inset: 0; transform: translateY(115%) rotateX(-25deg); transition: transform .48s cubic-bezier(.22,1,.36,1); }
-.connecto-button:is(:hover,:focus-visible) .button-roll > span { transform: translateY(-115%) rotateX(25deg); }
-.connecto-button:is(:hover,:focus-visible) .button-roll::after { transform: translateY(0) rotateX(0); }
-.connecto-button > svg { transition: transform .45s cubic-bezier(.22,1,.36,1); }
-.connecto-button:is(:hover,:focus-visible) > svg { transform: rotate(-12deg) translateY(-1px); }
+/* Liquid-glass controls keep labels steady and actions crisp. */
+.connecto-button { position: relative; isolation: isolate; border-radius: 14px; transition: background .25s, box-shadow .25s, transform .25s; }
+.connecto-button[data-button-variant="default"] { background: var(--primary); color: var(--primary-foreground); border: 1px solid var(--primary); box-shadow: var(--shadow-control); }
+.connecto-button[data-button-variant="outline"], .connecto-button[data-button-variant="secondary"] { background: var(--surface-control-glass); color: var(--ink-blue); border: 1px solid var(--border-control); box-shadow: var(--shadow-control-glass); backdrop-filter: blur(18px) saturate(150%); }
+.connecto-button[data-button-variant="ghost"] { box-shadow: none; }
+.connecto-button:is(:hover,:focus-visible) { transform: translateY(-1px); }
+.connecto-button[data-button-variant="default"]:is(:hover,:focus-visible) { background: var(--ink-blue); box-shadow: var(--shadow-control-active); }
+.connecto-button[data-button-variant="outline"]:is(:hover,:focus-visible) { background: var(--secondary); border-color: var(--primary); }
+.connecto-button:active { transform: translateY(1px); }
+.connecto-button > svg { transition: transform .25s; }
+.connecto-button:is(:hover,:focus-visible) > svg { transform: translateX(3px); }
 .hero-visual { width: min(1120px, calc(100% - 100px)); perspective: 1600px; margin-top: 40px; }
 .hero-dashboard-scroll, .hero-dashboard-tilt { transform-style: preserve-3d; will-change: transform; }
 .hero-dashboard-tilt { transform: perspective(1600px) rotateX(var(--dashboard-x, 0deg)) rotateY(var(--dashboard-y, 0deg)); transition: transform .3s ease-out; }
@@ -3677,16 +3674,8 @@ body { overflow-x: clip; }
 
 /* Oversized editorial moments and luminous machined controls. */
 .hero-visual { width: min(1380px, calc(100% - 64px)); }
-.connecto-button[data-button-variant="default"] { background: var(--button-metal); box-shadow: var(--button-aura); color: var(--primary-foreground); border: 1px solid var(--button-rim); }
-.connecto-button[data-button-variant="default"]::before,
-.connecto-button[data-button-variant="outline"]::before { content: ''; position: absolute; inset: 1px; border-radius: inherit; background: var(--button-sheen); background-size: 250% 100%; background-position: 130% 0; pointer-events: none; transition: background-position .8s ease; }
-.connecto-button[data-button-variant="default"]:is(:hover,:focus-visible),
-.connecto-button[data-button-variant="outline"]:is(:hover,:focus-visible) { box-shadow: var(--button-glow-active); transform: translateY(-2px); }
-.connecto-button:is(:hover,:focus-visible)::before { background-position: -30% 0; }
-.connecto-button { transition: box-shadow .35s, transform .35s, border-color .35s; }
-.connecto-button[data-button-variant="outline"] { border: 1px solid var(--editorial-outline); color: var(--ink-blue); background: var(--button-outline); box-shadow: var(--shadow-editorial); }
-.hero-actions .connecto-button, .nav .connecto-button[data-button-variant="default"], .pitch-explore, .investor-research-copy > .connecto-button { min-height: 54px; height: auto; padding: 10px 10px 10px 24px; gap: 20px; font-size: 13px; }
-.hero-actions .connecto-button > svg, .hero-actions .connecto-button > a > svg, .nav .connecto-button[data-button-variant="default"] > svg, .pitch-explore > svg, .investor-research-copy > .connecto-button > svg { width: 34px; height: 34px; padding: 9px; border: 1px solid var(--button-rim); border-radius: 50%; background: color-mix(in oklch, var(--background) 12%, transparent); }
+.hero-actions .connecto-button, .nav .connecto-button[data-button-variant="default"], .pitch-explore, .investor-research-copy > .connecto-button { min-height: 52px; height: auto; padding: 14px 22px; gap: 14px; font-size: 13px; border-radius: 14px; }
+.hero-actions .connecto-button > svg, .nav .connecto-button[data-button-variant="default"] > svg, .pitch-explore > svg, .investor-research-copy > .connecto-button > svg { width: 18px; height: 18px; padding: 0; border: 0; border-radius: 0; background: none; }
 .connecto-button:disabled { transform: none; }
 .pitching-revamp { background: var(--editorial-wash); padding-block: 110px 80px; overflow: clip; }
 .pitching-revamp .section-heading, .research-editorial .section-heading { max-width: 1050px; margin-bottom: 50px; }
