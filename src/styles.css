@@ -53,12 +53,12 @@
   --button-glow: 0 5px 18px color-mix(in oklch, var(--primary) 25%, transparent), inset 0 1px 0 color-mix(in oklch, var(--background) 40%, transparent);
   --button-glow-active: 0 8px 28px color-mix(in oklch, var(--primary) 40%, transparent), inset 0 1px 0 color-mix(in oklch, var(--background) 60%, transparent);
   --font-editorial: "Playfair Display", serif;
-  --button-metal: linear-gradient(180deg, color-mix(in oklch, var(--primary) 75%, var(--background)), var(--primary) 48%, var(--ink-blue));
+  --button-metal: linear-gradient(180deg, color-mix(in oklab, var(--primary) 75%, var(--background)), var(--primary) 48%, var(--ink-blue));
   --button-rim: color-mix(in oklch, var(--background) 55%, transparent);
   --button-sheen: linear-gradient(115deg, transparent 20%, color-mix(in oklch, var(--background) 32%, transparent) 48%, transparent 72%);
   --button-aura: 0 0 0 4px color-mix(in oklch, var(--primary) 8%, transparent), 0 8px 22px color-mix(in oklch, var(--primary) 28%, transparent), inset 0 1px 1px var(--button-rim), inset 0 -3px 6px color-mix(in oklch, var(--ink-blue) 38%, transparent);
   --editorial-wash: linear-gradient(180deg, var(--background), var(--secondary) 65%, var(--background));
-  --editorial-outline: color-mix(in oklch, var(--primary) 16%, var(--background));
+  --editorial-outline: color-mix(in oklab, var(--primary) 16%, var(--background));
 }
 * {
   border-color: var(--border);
@@ -3685,8 +3685,8 @@ body { overflow-x: clip; }
 .connecto-button:is(:hover,:focus-visible)::before { background-position: -30% 0; }
 .connecto-button { transition: box-shadow .35s, transform .35s, border-color .35s; }
 .connecto-button[data-button-variant="outline"] { border: 1px solid var(--editorial-outline); color: var(--ink-blue); background: var(--button-outline); box-shadow: var(--shadow-editorial); }
-.hero-actions .connecto-button, .nav .connecto-button, .pitch-explore, .investor-research-copy > .connecto-button { min-height: 54px; height: auto; padding: 10px 10px 10px 24px; gap: 20px; font-size: 13px; }
-.hero-actions .connecto-button > svg, .hero-actions .connecto-button > a > svg, .nav .connecto-button > svg, .pitch-explore > svg, .investor-research-copy > .connecto-button > svg { width: 34px; height: 34px; padding: 9px; border: 1px solid var(--button-rim); border-radius: 50%; background: color-mix(in oklch, var(--background) 12%, transparent); }
+.hero-actions .connecto-button, .nav .connecto-button[data-button-variant="default"], .pitch-explore, .investor-research-copy > .connecto-button { min-height: 54px; height: auto; padding: 10px 10px 10px 24px; gap: 20px; font-size: 13px; }
+.hero-actions .connecto-button > svg, .hero-actions .connecto-button > a > svg, .nav .connecto-button[data-button-variant="default"] > svg, .pitch-explore > svg, .investor-research-copy > .connecto-button > svg { width: 34px; height: 34px; padding: 9px; border: 1px solid var(--button-rim); border-radius: 50%; background: color-mix(in oklch, var(--background) 12%, transparent); }
 .connecto-button:disabled { transform: none; }
 .pitching-revamp { background: var(--editorial-wash); padding-block: 110px 80px; overflow: clip; }
 .pitching-revamp .section-heading, .research-editorial .section-heading { max-width: 1050px; margin-bottom: 50px; }
