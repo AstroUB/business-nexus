@@ -1,11 +1,11 @@
 # Landing page
-- [ ] Widen hero dashboard, strengthen glowing buttons, and redesign investor sections with oversized editorial typography and PNG artwork.
-- [ ] Enlarge dashboard and enhance pointer tilt without interfering with scroll animation.
-- [ ] Add rolling glow buttons, moving logos, and honest numeric highlights.
-- [ ] Finish pitching section with a new founder-investor illustration and revamp Beyond the pitch.
-- [ ] Verify updated interactions and desktop/mobile presentation.
-- [ ] Add scroll-driven hero dashboard depth and layered motion.
-- [ ] Revamp the founders-and-investors pitching section and verify both views on desktop and mobile.
+- [x] Widen hero dashboard, strengthen glowing buttons, and redesign investor sections with oversized editorial typography and PNG artwork.
+- [x] Enlarge dashboard and enhance pointer tilt without interfering with scroll animation.
+- [x] Add rolling glow buttons, moving logos, and honest numeric highlights.
+- [x] Finish pitching section with a new founder-investor illustration and revamp Beyond the pitch.
+- [x] Verify updated interactions and desktop/mobile presentation.
+- [x] Add scroll-driven hero dashboard depth and layered motion.
+- [x] Revamp the founders-and-investors pitching section and verify both views on desktop and mobile.
 - [x] Match the first bento grid to the newly supplied reference.
 - [x] Restore rounded bento corners and polish blue-white surfaces.
 - [x] Restore the earlier expanding three-card testimonial design while retaining six automatic stories.
