@@ -3704,6 +3704,7 @@ body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   .logo-track { animation: none; }
   .hero-dashboard-tilt { transform: none; transition: none; }
+  .connecto-button .button-roll-text { transition: none; transform: none; }
   .connecto-button > svg { transition: none; transform: none; }
   .pitch-perspective-panel, .research-evidence { animation: none; }
 }
