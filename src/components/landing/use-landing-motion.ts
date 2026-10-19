@@ -69,7 +69,7 @@ export function useLandingMotion() {
                  { rotateX: 16, scale: 0.96, transformPerspective: 1600, transformOrigin: "center bottom" },
                  { rotateX: 0, scale: 1, y: -24, ease: "none" }, 0);
               heroScroll.to(".hero-visual .product-feed", { y: -12, ease: "none" }, 0);
-              heroScroll.to(".hero-visual .post-art img", { y: -14, rotation: -8, scale: 1.12, ease: "none" }, 0);
+              heroScroll.to(".hero-visual .hd-art img", { y: -14, rotation: -8, scale: 1.12, ease: "none" }, 0);
               heroScroll.to(".hero-visual .hero-float", { x: -32, y: -65, rotation: -12, ease: "none" }, 0);
               heroScroll.to(".hero-visual .hero-float.right", { x: 32, y: -38, rotation: 15, ease: "none" }, 0);
               heroScroll.to(".hero-visual .floating-note", { y: -52, rotation: 3, ease: "none" }, 0);

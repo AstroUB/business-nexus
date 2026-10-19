@@ -3934,7 +3934,11 @@ body { overflow-x: clip; }
 .connecto-button[data-button-size="icon"] { border-radius: 12px; padding: 0; }
 .connecto-button[data-button-size="icon"] > svg { transform: none; }
 .final-cta .connecto-button { min-height: 52px; border-radius: 14px; padding-inline: 24px; }
+.hero-visual:has(.hero-workspace) .hero-float { left: -150px; }
+.hero-visual:has(.hero-workspace) .hero-float.right { left: auto; right: -145px; }
+.hero-visual:has(.hero-workspace) .floating-note { left: -150px; }
 @media (max-width: 700px) {
+  .hero-visual:has(.hero-workspace) :is(.hero-float, .floating-note) { display: none; }
   .liquid-site-header { top: 8px; margin-top: 8px; width: calc(100% - 24px); border-radius: 18px; }
   .liquid-site-header .nav { height: 62px; padding-inline: 16px; gap: 12px; }
   .liquid-site-header .mobile-links { position: relative; z-index: 31; padding-inline: 16px; pointer-events: auto; }
