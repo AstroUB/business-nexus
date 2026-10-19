@@ -39,16 +39,8 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
-    const rollingChildren = (content: React.ReactNode) => React.Children.map(content, (child) =>
-      typeof child === "string" || typeof child === "number"
-        ? <span className="button-roll" data-label={String(child)}><span>{child}</span></span>
-        : child,
-    );
-    const content = asChild && React.isValidElement<{ children?: React.ReactNode }>(children)
-      ? React.cloneElement(children, {}, rollingChildren(children.props.children))
-      : rollingChildren(children);
     return (
-      <Comp data-button-variant={variant ?? "default"} className={cn("connecto-button", buttonVariants({ variant, size, className }))} ref={ref} {...props}>{content}</Comp>
+      <Comp data-button-variant={variant ?? "default"} data-button-size={size ?? "default"} className={cn("connecto-button", buttonVariants({ variant, size, className }))} ref={ref} {...props}>{children}</Comp>
     );
   },
 );
