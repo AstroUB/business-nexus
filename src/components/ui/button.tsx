@@ -40,8 +40,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     const glass = !asChild && (variant == null || ["default", "outline", "secondary"].includes(variant));
+    const label = typeof children === "string" ? children : null;
     return (
-      <Comp data-button-variant={variant ?? "default"} data-button-size={size ?? "default"} className={cn("connecto-button", buttonVariants({ variant, size, className }))} ref={ref} {...props}>{glass ? <><span className="liquid-button-surface" aria-hidden="true" />{children}</> : children}</Comp>
+      <Comp data-button-variant={variant ?? "default"} data-button-size={size ?? "default"} className={cn("connecto-button", buttonVariants({ variant, size, className }))} ref={ref} {...props}>{glass ? <><span className="liquid-button-surface" aria-hidden="true" />{label ? (
+        <span className="button-roll">
+          <span className="button-roll-text">{label}</span>
+          <span className="button-roll-text" aria-hidden="true">{label}</span>
+        </span>
+      ) : children}</> : children}</Comp>
     );
   },
 );
