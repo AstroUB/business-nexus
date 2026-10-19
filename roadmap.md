@@ -1,5 +1,5 @@
 # Landing page
-- [ ] Replace the hero dashboard with a polished, accessible business-network preview and verify its controls and layouts.
+- [x] Replace the hero dashboard with a polished, accessible business-network preview and verify its controls and layouts.
 - [x] Give buttons blue-tinted textured liquid glass without blur, and increase hero dashboard height; verify interactions and layout.
 - [x] Replace metallic glow buttons and integrate liquidGL with accessible fallbacks; verify desktop and phone interactions.
 - [x] Widen hero dashboard, strengthen glowing buttons, and redesign investor sections with oversized editorial typography and PNG artwork.
