@@ -3,7 +3,7 @@ declare module "liquid-gl" {
   interface LiquidOptions {
     target: string;
     snapshot?: string;
-    content?: string;
+    content?: string | false;
     engine?: "auto" | "webgpu" | "webgl2" | "webgl";
     resolution?: number;
     refraction?: number;

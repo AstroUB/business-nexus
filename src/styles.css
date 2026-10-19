@@ -3534,7 +3534,8 @@ body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { .reference-photo > img { transition: none; } }
 
 /* Liquid-glass controls keep labels steady and actions crisp. */
-.connecto-button { position: relative; isolation: isolate; border-radius: 14px; transition: background .25s, box-shadow .25s, transform .25s; }
+.connecto-button { position: relative; isolation: isolate; z-index: 2; border-radius: 14px; transition: background .25s, box-shadow .25s, transform .25s; }
+.liquid-button-surface { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; }
 .connecto-button:is([data-button-variant="default"], [data-button-variant="outline"], [data-button-variant="secondary"]) { overflow: hidden; color: var(--ink-blue); border: 1px solid var(--border-button-liquid); box-shadow: var(--shadow-button-liquid); backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--surface-button-liquid); }
 .connecto-button:is([data-button-variant="outline"], [data-button-variant="secondary"]) { background: var(--surface-button-liquid-soft); }
 .connecto-button:is([data-button-variant="default"], [data-button-variant="outline"], [data-button-variant="secondary"])::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background-image: var(--texture-button-noise); background-size: 80px 80px; opacity: .3; mix-blend-mode: soft-light; pointer-events: none; z-index: -1; }
