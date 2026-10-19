@@ -12,8 +12,7 @@ export function useLiquidGlass() {
         const { default: liquidGL } = await import("liquid-gl");
         if (disposed) return;
         const result = liquidGL({
-          target: ".liquid-site-header",
-          content: ".nav",
+          target: ".liquid-nav-surface",
           snapshot: "body",
           engine: "auto",
           resolution: 0.65,

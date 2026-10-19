@@ -3752,12 +3752,13 @@ body { overflow-x: clip; }
 }
 
 .liquid-site-header { position: sticky; top: 12px; z-index: 30; margin-top: 12px; border-radius: 22px; border: 1px solid var(--border-control); background: var(--surface-control-glass); backdrop-filter: blur(20px) saturate(140%); box-shadow: var(--shadow-control-glass); }
-.liquid-site-header .nav { height: 72px; padding-inline: 22px; position: relative; z-index: 1; pointer-events: auto; }
+.liquid-nav-surface { position: absolute; inset: 0; border-radius: inherit; z-index: 30; pointer-events: none; }
+.liquid-site-header .nav { height: 72px; padding-inline: 22px; position: relative; z-index: 31; pointer-events: auto; }
 .connecto-button[data-button-size="icon"] { border-radius: 12px; padding: 0; }
 .connecto-button[data-button-size="icon"] > svg { transform: none; }
 .final-cta .connecto-button { min-height: 52px; border-radius: 14px; padding-inline: 24px; }
 @media (max-width: 700px) {
   .liquid-site-header { top: 8px; margin-top: 8px; width: calc(100% - 24px); border-radius: 18px; }
   .liquid-site-header .nav { height: 62px; padding-inline: 16px; gap: 12px; }
-  .liquid-site-header .mobile-links { position: relative; z-index: 2; padding-inline: 16px; pointer-events: auto; }
+  .liquid-site-header .mobile-links { position: relative; z-index: 31; padding-inline: 16px; pointer-events: auto; }
 }

@@ -140,6 +140,7 @@ function Index() {
   return (
     <>
       <header className="container-wide liquid-site-header">
+        <div className="liquid-nav-surface" aria-hidden="true" />
         <nav className="nav" aria-label="Main navigation">
           <Brand />
           <div className="nav-links">
