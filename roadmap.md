@@ -1,4 +1,5 @@
 # Landing page
+- [ ] Widen hero dashboard, strengthen glowing buttons, and redesign investor sections with oversized editorial typography and PNG artwork.
 - [ ] Enlarge dashboard and enhance pointer tilt without interfering with scroll animation.
 - [ ] Add rolling glow buttons, moving logos, and honest numeric highlights.
 - [ ] Finish pitching section with a new founder-investor illustration and revamp Beyond the pitch.
