@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowUpRight, Bookmark, Check, MessageCircle, Rocket, Search, TrendingUp, ArrowRight, Lightbulb, Eye, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Brand, BizLogo } from "./product-showcase";
-import idea from "@/assets/founder-investor-bridge.jpg";
+import idea from "@/assets/pitch-bridge-sculpture.png";
 import growth from "@/assets/investor-growth.png";
 import rocket from "@/assets/startup-rocket.png";
 import browser from "@/assets/tech-browser.png";
@@ -41,14 +41,12 @@ export function InvestorSection({ explore }: { explore: () => void }) {
   return (
     <section className="section investor-section pitching-revamp" id="investors">
       <div className="container-wide">
-        <div className="section-heading"><span className="eyebrow">Founders meet believers</span><h2>Big ideas deserve<br /><span className="serif">more than a small audience.</span></h2><p>Pitch your vision. Show your progress. Meet investors who believe in the business you’re building.</p></div>
+        <div className="section-heading pitch-editorial-heading"><span className="eyebrow">Founders meet believers</span><h2>You see an idea.<br /><span className="serif">They see the future.</span></h2><p>Put your ambition in the spotlight. Meet the investors who see what you see — and what comes next.</p></div>
         <div className="pitch-theater">
           <div className="pitch-stage">
-            <div className="pitch-stage-top"><span><Lightbulb /> THE PITCH SPOTLIGHT</span><span>IDEA → CONNECTION</span></div>
-            <div className="pitch-stage-title"><span>From “what if”</span><h3>to what’s <span className="serif">next.</span></h3></div>
-            <img className="pitch-stage-art" src={idea} alt="A founder presents a glass lightbulb idea, connected by a blue bridge to an investor discovering it" width={1536} height={1024} loading="lazy" />
-            <div className="pitch-stage-example"><div className="pitch-example-author"><BizLogo mark="f" /><div><b>Forma Labs</b><span>Software · Pre-seed</span></div><small>Sample pitch</small></div><h4>A simpler way for small teams to build.</h4><div className="pitch-example-tags"><span>Working prototype</span><span>Open to conversations <ArrowUpRight /></span></div></div>
-            <div className="pitch-stage-footer"><span>YOUR VISION. THEIR NEXT CONVICTION.</span><ArrowUpRight /></div>
+            <div className="pitch-stage-top"><span><Lightbulb /> AMBITION, MEET CONVICTION.</span><span>01 — 02</span></div>
+            <img className="pitch-stage-art" src={idea} alt="A founder and investor connected by a blue sculptural bridge beneath a glass lightbulb with a growing seed" width={1536} height={1024} loading="lazy" />
+            <div className="pitch-art-caption"><span>THE FOUNDER<br /><b>A vision worth sharing.</b></span><ArrowRight /><span>THE INVESTOR<br /><b>A future worth exploring.</b></span></div>
           </div>
           <div className="pitch-perspective">
             <div className="pitch-role-switch" role="tablist" aria-label="Pitching perspective"><Button id="founder-perspective" role="tab" aria-selected={isFounder} aria-controls="pitch-perspective-panel" variant={isFounder ? "default" : "ghost"} onClick={() => setPerspective("founder")}><Rocket /> For founders</Button><Button id="investor-perspective" role="tab" aria-selected={!isFounder} aria-controls="pitch-perspective-panel" variant={!isFounder ? "default" : "ghost"} onClick={() => setPerspective("investor")}><TrendingUp /> For investors</Button></div>
