@@ -1,4 +1,5 @@
 # Landing page
+- [x] Give buttons blue-tinted textured liquid glass without blur, and increase hero dashboard height; verify interactions and layout.
 - [x] Replace metallic glow buttons and integrate liquidGL with accessible fallbacks; verify desktop and phone interactions.
 - [x] Widen hero dashboard, strengthen glowing buttons, and redesign investor sections with oversized editorial typography and PNG artwork.
 - [x] Enlarge dashboard and enhance pointer tilt without interfering with scroll animation.
