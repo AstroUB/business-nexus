@@ -1,4 +1,6 @@
 # Landing page
+- [ ] Remove dashboard hover tilt, italicize serif text, compact footer, and ease FAQ answers without hover backgrounds.
+- [ ] Improve community presentation, add a useful collaboration brief section, and verify additional animations and dashboard gradient.
 - [x] Replace the hero dashboard with a polished, accessible business-network preview and verify its controls and layouts.
 - [x] Give buttons blue-tinted textured liquid glass without blur, and increase hero dashboard height; verify interactions and layout.
 - [x] Replace metallic glow buttons and integrate liquidGL with accessible fallbacks; verify desktop and phone interactions.
