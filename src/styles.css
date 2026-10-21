@@ -77,6 +77,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
   overflow-x: clip;
+  /* Stop the page from bouncing / chaining scroll past the end of the document */
+  overscroll-behavior-y: none;
 }
 body {
   margin: 0;
