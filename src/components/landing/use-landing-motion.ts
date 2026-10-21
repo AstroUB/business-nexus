@@ -110,6 +110,21 @@ export function useLandingMotion() {
               scrollTrigger: { trigger: ".community-bento", start: "top 75%" },
             });
             const journey = document.querySelector<HTMLElement>(".journey-full");
+            gsap.from(".overview-brand", {
+              y: 35, opacity: 0, duration: 1.1, ease: "power3.out",
+              scrollTrigger: { trigger: ".overview-layout", start: "top 85%" },
+            });
+            document.querySelectorAll(".overview-chapter").forEach(chapter => {
+              const rule = chapter.querySelector(".overview-rule");
+              const content = chapter.querySelectorAll(".overview-number, .overview-chapter > div:last-child");
+              const reveal = gsap.timeline({ scrollTrigger: { trigger: chapter, start: "top 88%" } });
+              if (rule) reveal.from(rule, { scaleX: 0, transformOrigin: "left center", duration: .8, ease: "power2.out" });
+              reveal.from(content, { y: 20, opacity: 0, stagger: .1, duration: .8, ease: "power3.out" }, 0.1);
+            });
+            gsap.to(".overview-brand img", {
+              y: -18, rotation: 5, ease: "none",
+              scrollTrigger: { trigger: ".platform-overview", start: "top bottom", end: "bottom top", scrub: 1.5 },
+            });
             const track = document.querySelector<HTMLElement>(".journey-full-track");
             if (journey && track)
               gsap.to(track, {
