@@ -97,6 +97,18 @@ export function useLandingMotion() {
               stagger: 0.25,
             });
             gsap.to(".loop-ring", { rotation: 360, duration: 50, repeat: -1, ease: "none" });
+            gsap.from(".network-numbers > div", {
+              y: 28, opacity: 0, stagger: 0.16, duration: 1, ease: "power3.out",
+              scrollTrigger: { trigger: ".network-numbers", start: "top 88%" },
+            });
+            gsap.from(".brief-art, .brief-workspace", {
+              y: 45, opacity: 0, stagger: 0.18, duration: 1.1, ease: "power3.out",
+              scrollTrigger: { trigger: ".brief-layout", start: "top 85%" },
+            });
+            gsap.from(".community-specialties > span", {
+              y: 14, opacity: 0, stagger: 0.07, duration: 0.7, ease: "power2.out",
+              scrollTrigger: { trigger: ".community-bento", start: "top 75%" },
+            });
             const journey = document.querySelector<HTMLElement>(".journey-full");
             const track = document.querySelector<HTMLElement>(".journey-full-track");
             if (journey && track)
