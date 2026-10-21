@@ -12,6 +12,7 @@ import {
 import { InvestorSection } from "@/components/landing/investor-preview";
 import { HeroDashboard } from "@/components/landing/hero-dashboard";
 import { CollaborationBrief } from "@/components/landing/collaboration-brief";
+import { PlatformOverview } from "@/components/landing/platform-overview";
 import { useLandingMotion } from "@/components/landing/use-landing-motion";
 import { useLiquidGlass } from "@/components/landing/use-liquid-glass";
 import {
@@ -304,6 +305,7 @@ function Index() {
           </div>
         </section>
         <FeatureBento />
+        <PlatformOverview explore={explore} />
         <FullPageJourney />
         <InvestorSection explore={explore} />
         <Opportunities explore={explore} />

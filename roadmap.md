@@ -1,4 +1,5 @@
 # Landing page
+- [ ] Replace the large dashboard gradient with a minimal circular glow and add an animated whole-platform explanation.
 - [x] Remove dashboard hover tilt, italicize serif text, compact footer, and ease FAQ answers without hover backgrounds.
 - [x] Improve community presentation, add a useful collaboration brief section, and verify additional animations and dashboard gradient.
 - [x] Replace the hero dashboard with a polished, accessible business-network preview and verify its controls and layouts.

@@ -22,3 +22,4 @@
 - Load GSAP and ScrollTrigger inside client effects through the landing motion hook, with scoped cleanup and reduced-motion alternatives, to keep SSR safe and animation lifecycle predictable.
 - Keep rich landing sections in dedicated presentation components; testimonials rotate stories in a three-card composition with one expanding portrait to preserve the reference layout, and the journey uses viewport-wide slides within a sticky scroll band.
 - Keep collaboration briefs in a separate sample-only presentation component with accessible tabs; this lets useful partnership guidance remain independent of product previews.
+- Keep the whole-platform overview as a standalone editorial section with ordered chapters and motion in the shared landing hook; the full explanation stays readable without animation.
