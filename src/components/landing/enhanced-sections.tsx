@@ -267,7 +267,7 @@ export function CommunityBento({ explore }: { explore: () => void }) {
     { title: "Investors", subtitle: "Conviction meets ambition.", copy: "Discover company pitches, explore the ideas behind them, and connect directly with teams to discuss investing in their projects.", icon: TrendingUp, class: "investor-community", tags: ["Discover pitches", "Back ambitious teams"], image: growth },
   ];
   return (
-    <section className="section community-section" id="community">
+    <section className="section community-section community-editorial" id="community">
       <div className="container-wide">
         <Heading
           label="Your kind of people. Your kind of ambition."
@@ -283,7 +283,7 @@ export function CommunityBento({ explore }: { explore: () => void }) {
         <div className="community-bento community-banners">
           {groups.map((g, i) => (
             <article className={`community-tile community-banner banner-${i}`} key={g.title}>
-              <div className="community-banner-copy"><span className="tile-kicker">0{i + 1} / {g.title}</span><h3>{g.subtitle}</h3><p>{g.copy}</p><Button variant="ghost" onClick={explore} aria-label={`Explore ${g.title}`}>Explore {g.title.toLowerCase()} <ArrowUpRight /></Button></div>
+              <div className="community-banner-copy"><span className="tile-kicker"><g.icon aria-hidden="true" /> THE CONNECTO COLLECTIVE / 0{i + 1}</span><h3>{g.title}</h3><span className="community-subtitle serif">{g.subtitle}</span><p>{g.copy}</p><div className="community-specialties">{g.tags.map(tag => <span key={tag}>{tag}</span>)}</div><Button variant="ghost" onClick={explore} aria-label={`Explore ${g.title}`}>Explore {g.title.toLowerCase()} <ArrowUpRight /></Button></div>
               <div className="community-tile-art"><img src={g.image} alt={`${g.title} blue-and-white sculpture`} width={380} height={380} loading="lazy" /></div>
             </article>
           ))}

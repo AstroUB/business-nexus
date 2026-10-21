@@ -11,6 +11,7 @@ import {
 } from "@/components/landing/enhanced-sections";
 import { InvestorSection } from "@/components/landing/investor-preview";
 import { HeroDashboard } from "@/components/landing/hero-dashboard";
+import { CollaborationBrief } from "@/components/landing/collaboration-brief";
 import { useLandingMotion } from "@/components/landing/use-landing-motion";
 import { useLiquidGlass } from "@/components/landing/use-liquid-glass";
 import {
@@ -307,6 +308,7 @@ function Index() {
         <InvestorSection explore={explore} />
         <Opportunities explore={explore} />
         <CommunityBento explore={explore} />
+        <CollaborationBrief explore={explore} />
         <AnimatedTestimonials />
         <WorkInPublic explore={explore} />
         <ConnectionLoop explore={explore} />
@@ -348,7 +350,7 @@ function Index() {
             </div>
             <div>
               {faqs.map(([question, answer], i) => (
-                <div className="faq-item" key={question}>
+                <div className="faq-item" data-open={openFaq === i} key={question}>
                   <Button
                     variant="ghost"
                     aria-expanded={openFaq === i}
@@ -356,9 +358,9 @@ function Index() {
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   >
                     {question}
-                    {openFaq === i ? <Minus /> : <Plus />}
+                    <Plus aria-hidden="true" />
                   </Button>
-                  {openFaq === i && <p id={`faq-answer-${i}`}>{answer}</p>}
+                  <div className="faq-answer" id={`faq-answer-${i}`} inert={openFaq !== i} aria-hidden={openFaq !== i}><div><p>{answer}</p></div></div>
                 </div>
               ))}
             </div>
